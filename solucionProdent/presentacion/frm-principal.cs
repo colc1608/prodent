@@ -16,5 +16,11 @@ namespace presentacion
         {
             InitializeComponent();
         }
+
+        private void menuItemPaciente_Click(object sender, EventArgs e)
+        {
+            frm_crudPaciente frmCrudPaciente = new frm_crudPaciente();
+            frmCrudPaciente.ShowDialog();
+        }
     }
 }

@@ -10,16 +10,18 @@ namespace persistencia
 {
     public class conexion
     {
-        private SqlConnection conexion;
+        private SqlConnection cn;
         private SqlTransaction transaccion;
 
         public void abrirConexion()
         {
             try
             {
-                conexion = new SqlConnection();
-                conexion.ConnectionString = "Data Source=(local);Initial Catalog=prodent;Integrated Security=true";
-                conexion.Open();
+                cn = new SqlConnection();
+                cn.ConnectionString = "Data Source=ppi7dowad9.database.windows.net;Initial Catalog=prodent;Integrated Security=False;User ID=clopezc;Password=123456a+;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False";
+                //Data Source=ppi7dowad9.database.windows.net;Initial Catalog=prodent;Integrated Security=False;User ID=clopezc;Password=123456a+;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False
+                //"Data Source=(local);Initial Catalog=prodent;Integrated Security=true";
+                cn.Open();
             }
             catch (Exception e)
             {
@@ -32,7 +34,7 @@ namespace persistencia
         {
             try
             {
-                conexion.Close();
+                cn.Close();
             }
             catch (Exception e)
             {
@@ -46,7 +48,7 @@ namespace persistencia
             try
             {
                 abrirConexion();
-                transaccion = conexion.BeginTransaction();
+                transaccion = cn.BeginTransaction();
             }
             catch (Exception e)
             {
@@ -59,7 +61,7 @@ namespace persistencia
             try
             {
                 transaccion.Commit();
-                conexion.Close();
+                cn.Close();
             }
             catch (Exception e)
             {
@@ -72,7 +74,7 @@ namespace persistencia
             try
             {
                 transaccion.Rollback();
-                conexion.Close();
+                cn.Close();
             }
             catch (Exception e)
             {
@@ -84,7 +86,7 @@ namespace persistencia
         {
             try
             {
-                SqlCommand comando = conexion.CreateCommand();
+                SqlCommand comando = cn.CreateCommand();
                 if (transaccion != null)
                     comando.Transaction = transaccion;
                 comando.CommandText = sentenciaSQL;
@@ -102,7 +104,7 @@ namespace persistencia
         {
             try
             {
-                SqlCommand comando = conexion.CreateCommand();
+                SqlCommand comando = cn.CreateCommand();
                 if (transaccion != null)
                     comando.Transaction = transaccion;
                 comando.CommandText = sentenciaSQL;
@@ -119,7 +121,7 @@ namespace persistencia
         {
             try
             {
-                SqlCommand comando = conexion.CreateCommand();
+                SqlCommand comando = cn.CreateCommand();
                 if (transaccion != null)
                     comando.Transaction = transaccion;
                 comando.CommandText = procedimiento_almacenado;

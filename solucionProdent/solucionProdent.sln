@@ -4,12 +4,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "presentacion", "presentacion\presentacion.csproj", "{4995B836-587D-48C9-879F-EEC5240DE33E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{227AE03B-BBEC-4A6E-87AB-AA17F94729A7} = {227AE03B-BBEC-4A6E-87AB-AA17F94729A7}
+		{4B9E54E9-7B65-4C44-BE29-21F339DAFA92} = {4B9E54E9-7B65-4C44-BE29-21F339DAFA92}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "persistencia", "persistencia\persistencia.csproj", "{949CC97B-EDE5-469A-9F70-C5AFCF37545F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4B9E54E9-7B65-4C44-BE29-21F339DAFA92} = {4B9E54E9-7B65-4C44-BE29-21F339DAFA92}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dominio", "dominio\dominio.csproj", "{4B9E54E9-7B65-4C44-BE29-21F339DAFA92}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aplicacion", "aplicacion\aplicacion.csproj", "{227AE03B-BBEC-4A6E-87AB-AA17F94729A7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{949CC97B-EDE5-469A-9F70-C5AFCF37545F} = {949CC97B-EDE5-469A-9F70-C5AFCF37545F}
+		{4B9E54E9-7B65-4C44-BE29-21F339DAFA92} = {4B9E54E9-7B65-4C44-BE29-21F339DAFA92}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -16,5 +16,11 @@ namespace presentacion
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frm_principal frmPrincipal = new frm_principal();
+            frmPrincipal.ShowDialog();
+        }
     }
 }
