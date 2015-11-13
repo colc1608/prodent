@@ -8,5 +8,6 @@ namespace dominio
 {
     public class medico
     {
+
     }
 }
