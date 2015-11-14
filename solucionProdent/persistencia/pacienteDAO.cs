@@ -32,7 +32,38 @@ namespace persistencia
             {
                 throw e;
             }
+        }//fin de ingresar paciente
+
+
+        public int modificar(Paciente paciente)
+        {
+            int registros_afectados;
+            String sentenciaSQL = "update Paciente set " +
+                " nombre = @nombre, " +
+                " apellidoPaterno = @apellidoPaterno,  " +
+                " apellidoMaterno = @apellidoMaterno,  " +
+                " dni = @dni,  " +
+                " direccion = @direccion,  " +
+                " telefono = @telefono, " +
+                " celular = @celular,  " +
+                " sexo = @sexo, " +
+                " correo = @correo, " +
+                " fechaNacimiento = @fechaNacimiento " +
+                " where id = @id; ";
+            try
+            {
+                SqlCommand comando = cn.obtenerComandoSQL(sentenciaSQL);
+                asignarParametros(paciente, comando);
+                comando.Parameters.AddWithValue("@id", paciente.Id);
+                registros_afectados = comando.ExecuteNonQuery();
+                return registros_afectados;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
+
 
         public List<Paciente> listarPacientes()
         {
@@ -54,7 +85,11 @@ namespace persistencia
             {
                 throw e;
             }
-        }
+        }//fin de listar
+
+
+        
+
 
 
         public Paciente crearObjetoPaciente(SqlDataReader resultado)

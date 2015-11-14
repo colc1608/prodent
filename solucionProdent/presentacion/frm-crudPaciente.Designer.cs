@@ -38,6 +38,7 @@
             this.groupBoxBuscarPaciente = new System.Windows.Forms.GroupBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.rbFemenino = new System.Windows.Forms.RadioButton();
             this.rbMasculino = new System.Windows.Forms.RadioButton();
             this.txtCorreo = new System.Windows.Forms.TextBox();
@@ -62,7 +63,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataPacientes)).BeginInit();
             this.groupBoxBuscarPaciente.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,6 +70,9 @@
             // 
             // dataPacientes
             // 
+            this.dataPacientes.AllowUserToAddRows = false;
+            this.dataPacientes.AllowUserToDeleteRows = false;
+            this.dataPacientes.AllowUserToOrderColumns = true;
             this.dataPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataPacientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre,
@@ -78,31 +81,37 @@
             this.dni});
             this.dataPacientes.Location = new System.Drawing.Point(33, 77);
             this.dataPacientes.Name = "dataPacientes";
+            this.dataPacientes.ReadOnly = true;
             this.dataPacientes.Size = new System.Drawing.Size(648, 143);
             this.dataPacientes.TabIndex = 0;
+            this.dataPacientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataPacientes_MouseClick);
             // 
             // nombre
             // 
             this.nombre.HeaderText = "nombre";
             this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
             this.nombre.Width = 150;
             // 
             // apellidoPaterno
             // 
             this.apellidoPaterno.HeaderText = "apellidoPaterno";
             this.apellidoPaterno.Name = "apellidoPaterno";
+            this.apellidoPaterno.ReadOnly = true;
             this.apellidoPaterno.Width = 150;
             // 
             // apellidoMaterno
             // 
             this.apellidoMaterno.HeaderText = "apellidoMaterno";
             this.apellidoMaterno.Name = "apellidoMaterno";
+            this.apellidoMaterno.ReadOnly = true;
             this.apellidoMaterno.Width = 150;
             // 
             // dni
             // 
             this.dni.HeaderText = "dni";
             this.dni.Name = "dni";
+            this.dni.ReadOnly = true;
             this.dni.Width = 150;
             // 
             // textBox1
@@ -168,6 +177,13 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
+            // 
+            // dtpFechaNacimiento
+            // 
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(481, 226);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaNacimiento.TabIndex = 13;
             // 
             // rbFemenino
             // 
@@ -348,6 +364,7 @@
             this.btnActualizar.TabIndex = 9;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnEliminar
             // 
@@ -377,13 +394,6 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // dtpFechaNacimiento
-            // 
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(481, 226);
-            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaNacimiento.TabIndex = 13;
             // 
             // frm_crudPaciente
             // 

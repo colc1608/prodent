@@ -15,8 +15,8 @@ namespace presentacion
 {
     public partial class frm_crudPaciente : Form
     {
-        List<Paciente> listaPacientes = new List<Paciente>();
-        Paciente objPaciente = new Paciente();
+        List<Paciente> listaDePacientes = new List<Paciente>();
+        Paciente objPacienteSeleccionado = new Paciente();
 
         public frm_crudPaciente()
         {
@@ -32,9 +32,9 @@ namespace presentacion
             try
             {
                 crudPaciente crud = new crudPaciente();
-                listaPacientes = crud.listarPacientes();
+                listaDePacientes = crud.listarPacientes();
                 dataPacientes.Rows.Clear();
-                foreach (Paciente paciente in listaPacientes)
+                foreach (Paciente paciente in listaDePacientes)
                 {
                     Object[] fila = { paciente.Nombre, paciente.ApellidoPaterno, paciente.ApellidoMaterno, paciente.Dni};
                     dataPacientes.Rows.Add(fila);
@@ -105,6 +105,7 @@ namespace presentacion
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             int registros_afectados;
+            Paciente objPaciente = new Paciente();
             objPaciente.Nombre = txtNombre.Text;
             objPaciente.ApellidoPaterno = txtApellidoPaterno.Text;
             objPaciente.ApellidoMaterno = txtApellidoMaterno.Text;
@@ -115,8 +116,6 @@ namespace presentacion
             objPaciente.Correo = txtCorreo.Text.Trim();
             objPaciente.FechaNacimiento = dtpFechaNacimiento.Value;
             objPaciente.Sexo =  (rbMasculino.Checked)? "M" : "F";
-
-
 
             if (objPaciente.Nombre.Length == 0 || objPaciente.Dni.Length == 0)
             {
@@ -132,21 +131,49 @@ namespace presentacion
                     MessageBox.Show("El paciente fue creado.", "PRODENT: Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("El paciente no pudo ser creado, verifique.", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Close();
+                //Close();
                 CargarListadoDePacientes();
                 limpiarCajas();
                 //activaBotones(true,false,false);
             }
             catch (Exception err)
             {
-                MessageBox.Show(this, "Ocurrio un problema al guardar el paciente. \n\nIntente de nuevo o verifique con el Administrador.", "Worker's Health Center: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "Ocurrio un problema al guardar el paciente. \n\nIntente de nuevo o verifique con el Administrador.", "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //System.Console.WriteLine("el tipo de error es "+ err);
             }
+        }//fin de guardar
 
 
+        /*
+        private int obtenerIdPacienteSeleccionado()
+        {
+            //int fila = int.Parse(dataPacientes.CurrentRow.Index.ToString());
+            //txtNombre.Text = dataPacientes.CurrentRow.Index.ToString();
+            objPacienteSeleccionado = listaDePacientes[int.Parse(dataPacientes.CurrentRow.Index.ToString())];
+            return objPacienteSeleccionado.Id;
+        }
+        */
+        
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+
+        private void dataPacientes_MouseClick(object sender, MouseEventArgs e)
+        {
+            objPacienteSeleccionado = listaDePacientes[int.Parse(dataPacientes.CurrentRow.Index.ToString())];
+            txtNombre.Text = objPacienteSeleccionado.Nombre;
+            txtApellidoPaterno.Text = objPacienteSeleccionado.ApellidoPaterno;
+            txtApellidoMaterno.Text = objPacienteSeleccionado.ApellidoMaterno;
+            txtDNI.Text = objPacienteSeleccionado.Dni;
+            btnNuevo.Text = "Nuevo";
+            activaBotones(true,false,true);
+            activarCajas(true);
         }
 
 
 
-    }
+    }//fin de clase
 }
