@@ -106,20 +106,11 @@ namespace presentacion
         {
             int registros_afectados;
             Paciente objPaciente = new Paciente();
-            objPaciente.Nombre = txtNombre.Text;
-            objPaciente.ApellidoPaterno = txtApellidoPaterno.Text;
-            objPaciente.ApellidoMaterno = txtApellidoMaterno.Text;
-            objPaciente.Dni = txtDNI.Text.Trim();
-            objPaciente.Direccion = txtDireccion.Text;
-            objPaciente.Telefono = txtTelefono.Text.Trim();
-            objPaciente.Celular = txtCelular.Text.Trim();
-            objPaciente.Correo = txtCorreo.Text.Trim();
-            objPaciente.FechaNacimiento = dtpFechaNacimiento.Value;
-            objPaciente.Sexo =  (rbMasculino.Checked)? "M" : "F";
+            llenarObjetoPaciente(objPaciente);
 
             if (objPaciente.Nombre.Length == 0 || objPaciente.Dni.Length == 0)
             {
-                MessageBox.Show(this, "Debe ingresar al menos el nombre y el dni", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, "Debe ingresar al menos el nombre y el dni", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNombre.Focus();
                 return;
             }
@@ -130,11 +121,12 @@ namespace presentacion
                 if (registros_afectados == 1)
                     MessageBox.Show("El paciente fue creado.", "PRODENT: Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("El paciente no pudo ser creado, verifique.", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //Close();
+                    MessageBox.Show("El paciente no pudo ser creado, verifique.", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 CargarListadoDePacientes();
                 limpiarCajas();
-                //activaBotones(true,false,false);
+                activarCajas(false);
+                activaBotones(true, false, false);
+                btnNuevo.Text = "nuevo";
             }
             catch (Exception err)
             {
@@ -142,6 +134,20 @@ namespace presentacion
                 //System.Console.WriteLine("el tipo de error es "+ err);
             }
         }//fin de guardar
+
+        private void llenarObjetoPaciente(Paciente objPaciente)
+        {
+            objPaciente.Nombre = txtNombre.Text;
+            objPaciente.ApellidoPaterno = txtApellidoPaterno.Text;
+            objPaciente.ApellidoMaterno = txtApellidoMaterno.Text;
+            objPaciente.Dni = txtDNI.Text.Trim();
+            objPaciente.Direccion = txtDireccion.Text;
+            objPaciente.Telefono = txtTelefono.Text.Trim();
+            objPaciente.Celular = txtCelular.Text.Trim();
+            objPaciente.Correo = txtCorreo.Text.Trim();
+            objPaciente.FechaNacimiento = dtpFechaNacimiento.Value;
+            objPaciente.Sexo = (rbMasculino.Checked) ? "M" : "F";
+        }
 
 
         /*
@@ -157,8 +163,38 @@ namespace presentacion
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            
-        }
+            int registros_afectados;
+            Paciente objPaciente = new Paciente();
+            objPaciente.Id = objPacienteSeleccionado.Id;
+            llenarObjetoPaciente(objPaciente);
+
+            if (objPaciente.Nombre.Length == 0 || objPaciente.Dni.Length == 0)
+            {
+                MessageBox.Show(this, "Debe ingresar al menos el nombre y el dni", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNombre.Focus();
+                return;
+            }
+            try
+            {
+                crudPaciente crud = new crudPaciente();
+                registros_afectados = crud.modificarPaciente(objPaciente);
+                if (registros_afectados == 1){
+                    MessageBox.Show("El paciente fue actualizado.", "PRODENT: Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarListadoDePacientes();
+                    limpiarCajas();
+                    activarCajas(false);
+                    activaBotones(true,false,false);
+                }
+                else
+                    MessageBox.Show("El paciente no pudo ser actualizado, verifique.", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+            catch (Exception err)
+            {
+                //System.Console.WriteLine("el tipo de error es "+ err);
+                MessageBox.Show(this, "Ocurrio un problema al actualizado el paciente. \n\nIntente de nuevo o verifique con el Administrador.", "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }//fin de actualizar
 
 
         private void dataPacientes_MouseClick(object sender, MouseEventArgs e)
@@ -171,6 +207,43 @@ namespace presentacion
             btnNuevo.Text = "Nuevo";
             activaBotones(true,false,true);
             activarCajas(true);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int registros_afectados;
+            
+
+            DialogResult resultado;
+            resultado = MessageBox.Show("Estas seguro que deseas eliminar el registro de: " + objPacienteSeleccionado.Nombre, "PRODENT: Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if(resultado == DialogResult.Yes){
+                try
+                {
+                    crudPaciente crud = new crudPaciente();
+                    registros_afectados = crud.eliminarPaciente(objPacienteSeleccionado);
+                    if (registros_afectados == 1)
+                    {
+                        MessageBox.Show("El paciente fue eliminado", "PRODENT: Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CargarListadoDePacientes();
+                        limpiarCajas();
+                        activarCajas(false);
+                        activaBotones(true, false, false);
+                    }
+                    else
+                        MessageBox.Show("El paciente no pudo ser eliminado, verifique.", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                catch (Exception err)
+                {
+                    //System.Console.WriteLine("el tipo de error es "+ err);
+                    MessageBox.Show(this, "Ocurrio un problema al actualizado el paciente. \n\nIntente de nuevo o verifique con el Administrador.", "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else {
+                limpiarCajas();
+                activarCajas(false);
+                activaBotones(true,false,false);
+            }
         }
 
 

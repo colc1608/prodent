@@ -62,6 +62,23 @@ namespace persistencia
             {
                 throw e;
             }
+        }//fin de mofificar
+
+        public int eliminar(Paciente paciente)
+        {
+            int registros_afectados;
+            String sentenciaSQL = "update Paciente set estado = 0 where id = @id; ";
+            try
+            {
+                SqlCommand comando = cn.obtenerComandoSQL(sentenciaSQL);
+                comando.Parameters.AddWithValue("@id", paciente.Id);
+                registros_afectados = comando.ExecuteNonQuery();
+                return registros_afectados;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
 

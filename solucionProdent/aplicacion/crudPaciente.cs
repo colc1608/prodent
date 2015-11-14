@@ -50,10 +50,42 @@ namespace aplicacion
             {
                 throw e;
             }
-        }
+        }//fin de ingresar Paciente
+
+        public int modificarPaciente(Paciente paciente)
+        {
+            try
+            {
+                cn.abrirConexion();
+                int r = pacienteDAO.modificar(paciente);
+                cn.cerrarConexion();
+                return r;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }//fin de modificar
+
+
+        public int eliminarPaciente(Paciente paciente)
+        {
+            try
+            {
+                cn.abrirConexion();
+                int r = pacienteDAO.eliminar(paciente);
+                cn.cerrarConexion();
+                return r;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }//fin de modificar
 
 
 
-        //fin de clase
-    }
+
+
+    }//fin de clase
 }

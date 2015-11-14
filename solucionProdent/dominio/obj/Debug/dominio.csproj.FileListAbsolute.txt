@@ -1,0 +1,5 @@
+C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\dominio\bin\Debug\dominio.dll
+C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\dominio\bin\Debug\dominio.pdb
+C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\dominio\obj\Debug\dominio.csprojResolveAssemblyReference.cache
+C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\dominio\obj\Debug\dominio.dll
+C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\dominio\obj\Debug\dominio.pdb
