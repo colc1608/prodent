@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dominio
 {
-    public class medico
+    public class Medico
     {
 
     }

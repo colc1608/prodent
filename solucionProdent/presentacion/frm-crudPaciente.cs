@@ -15,24 +15,24 @@ namespace presentacion
 {
     public partial class frm_crudPaciente : Form
     {
+        List<Paciente> listaPacientes = new List<Paciente>();
         public frm_crudPaciente()
         {
             InitializeComponent();
             CargarListadoDePacientes();
-
+            CajasTexto(false);
         }
+
         private void CargarListadoDePacientes()
         {
             try
             {
                 crudPaciente crudPaciente = new crudPaciente();
-                List<Paciente> listaPacientes = crudPaciente.listarPacientes();
+                listaPacientes = crudPaciente.listarPacientes();
                 dataPacientes.Rows.Clear();
                 foreach (Paciente paciente in listaPacientes)
                 {
-                    Object[] fila = { paciente.Id, paciente.Nombre, paciente.ApellidoPaterno, paciente.ApellidoMaterno, 
-                                              paciente.Dni, paciente.Direccion, paciente.Telefono , paciente.Celular, 
-                                              paciente.Sexo, paciente.Correo, paciente.FechaNacimiento, paciente.Estado};
+                    Object[] fila = { paciente.Nombre, paciente.ApellidoPaterno, paciente.ApellidoMaterno, paciente.Dni};
                     dataPacientes.Rows.Add(fila);
                 }
             }
@@ -43,5 +43,36 @@ namespace presentacion
                 Console.WriteLine(err.ToString());
             }
         }
+
+        private void CajasTexto(bool a)
+        {
+            txtNombre.Enabled = a;
+            txtApellidoPaterno.Enabled = a;
+            txtApellidoMaterno.Enabled = a;
+            txtDNI.Enabled = a;
+            txtDireccion.Enabled = a;
+            txtTelefono.Enabled = a;
+            txtCelular.Enabled = a;
+            rbFemenino.Enabled = a;
+            rbMasculino.Enabled = a;
+            txtCorreo.Enabled = a;
+            txtFechaNacimiento.Enabled = a;
+        }
+
+
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            CajasTexto(true);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            CajasTexto(false);
+        }
+
+
+
+
     }
 }

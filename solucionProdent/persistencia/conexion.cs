@@ -18,7 +18,7 @@ namespace persistencia
             try
             {
                 cn = new SqlConnection();
-                cn.ConnectionString = "Data Source=ppi7dowad9.database.windows.net;Initial Catalog=prodent;Integrated Security=False;User ID=clopezc;Password=123456a+;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False";
+                cn.ConnectionString = "Data Source=ppi7dowad9.database.windows.net;Initial Catalog=prodent;Integrated Security=false;User ID=clopezc;Password=123456a+;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False";
                 //Data Source=ppi7dowad9.database.windows.net;Initial Catalog=prodent;Integrated Security=False;User ID=clopezc;Password=123456a+;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False
                 //"Data Source=(local);Initial Catalog=prodent;Integrated Security=true";
                 cn.Open();

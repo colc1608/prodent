@@ -39,8 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="asistente.cs" />
-    <Compile Include="medico.cs" />
+    <Compile Include="Asistente.cs" />
+    <Compile Include="Medico.cs" />
     <Compile Include="Paciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
