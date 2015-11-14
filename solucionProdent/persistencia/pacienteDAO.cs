@@ -15,14 +15,31 @@ namespace persistencia
         public pacienteDAO(conexion cn) {
             this.cn = cn;
         }
-        
-        
+
+        public int ingresar(Paciente paciente)
+        {
+            int registros_afectados;
+            String sentenciaSQL = "insert into paciente (nombre, apellidoPaterno,apellidoMaterno,dni,direccion,telefono,celular,sexo,correo,fechaNacimiento) "
+                + " values (@nombre,@apellidoPaterno,@apellidoMaterno,@dni,@direccion,@telefono,@celular,@sexo,@correo,@fechaNacimiento);";
+            try
+            {
+                SqlCommand comando = cn.obtenerComandoSQL(sentenciaSQL);
+                asignarParametros(paciente, comando);
+                registros_afectados = comando.ExecuteNonQuery();
+                return registros_afectados;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public List<Paciente> listarPacientes()
         {
             List<Paciente> listaDePacientes = new List<Paciente>();
-            String sentenciaSQL = "select * from paciente";
             try
             {
+                String sentenciaSQL = "select * from paciente where estado = '1' ";
                 SqlDataReader resultado = cn.ejecutarConsulta(sentenciaSQL);
                 while (resultado.Read())
                 {
@@ -60,5 +77,25 @@ namespace persistencia
             
             return paciente;
         }
+
+
+        private void asignarParametros(Paciente paciente, SqlCommand comando)
+        {
+            comando.Parameters.AddWithValue("@nombre", paciente.Nombre);
+            comando.Parameters.AddWithValue("@apellidoPaterno", paciente.ApellidoPaterno);
+            comando.Parameters.AddWithValue("@apellidoMaterno", paciente.ApellidoMaterno);
+            comando.Parameters.AddWithValue("@dni", paciente.Dni);
+            comando.Parameters.AddWithValue("@direccion", paciente.Direccion);
+            comando.Parameters.AddWithValue("@telefono", paciente.Telefono);
+            comando.Parameters.AddWithValue("@celular", paciente.Celular);
+            comando.Parameters.AddWithValue("@sexo", paciente.Sexo);
+            comando.Parameters.AddWithValue("@correo", paciente.Correo);
+            comando.Parameters.AddWithValue("@fechaNacimiento", paciente.FechaNacimiento);
+        }
+
+
+
+
+
     }
 }

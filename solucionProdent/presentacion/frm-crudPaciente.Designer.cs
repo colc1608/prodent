@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.dataPacientes = new System.Windows.Forms.DataGridView();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoPaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoMaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBoxBuscarPaciente = new System.Windows.Forms.GroupBox();
@@ -36,7 +40,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbFemenino = new System.Windows.Forms.RadioButton();
             this.rbMasculino = new System.Windows.Forms.RadioButton();
-            this.txtFechaNacimiento = new System.Windows.Forms.TextBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtCelular = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -55,14 +58,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoPaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoMaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataPacientes)).BeginInit();
             this.groupBoxBuscarPaciente.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -81,9 +81,33 @@
             this.dataPacientes.Size = new System.Drawing.Size(648, 143);
             this.dataPacientes.TabIndex = 0;
             // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.Width = 150;
+            // 
+            // apellidoPaterno
+            // 
+            this.apellidoPaterno.HeaderText = "apellidoPaterno";
+            this.apellidoPaterno.Name = "apellidoPaterno";
+            this.apellidoPaterno.Width = 150;
+            // 
+            // apellidoMaterno
+            // 
+            this.apellidoMaterno.HeaderText = "apellidoMaterno";
+            this.apellidoMaterno.Name = "apellidoMaterno";
+            this.apellidoMaterno.Width = 150;
+            // 
+            // dni
+            // 
+            this.dni.HeaderText = "dni";
+            this.dni.Name = "dni";
+            this.dni.Width = 150;
+            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(23, 33);
+            this.textBox1.Location = new System.Drawing.Point(33, 33);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(240, 20);
             this.textBox1.TabIndex = 1;
@@ -91,7 +115,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(289, 32);
+            this.comboBox1.Location = new System.Drawing.Point(313, 32);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(166, 21);
             this.comboBox1.TabIndex = 2;
@@ -103,7 +127,7 @@
             this.groupBoxBuscarPaciente.Controls.Add(this.comboBox1);
             this.groupBoxBuscarPaciente.Location = new System.Drawing.Point(51, 434);
             this.groupBoxBuscarPaciente.Name = "groupBoxBuscarPaciente";
-            this.groupBoxBuscarPaciente.Size = new System.Drawing.Size(730, 254);
+            this.groupBoxBuscarPaciente.Size = new System.Drawing.Size(720, 254);
             this.groupBoxBuscarPaciente.TabIndex = 3;
             this.groupBoxBuscarPaciente.TabStop = false;
             this.groupBoxBuscarPaciente.Text = "Buscar Paciente";
@@ -117,9 +141,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dtpFechaNacimiento);
             this.groupBox1.Controls.Add(this.rbFemenino);
             this.groupBox1.Controls.Add(this.rbMasculino);
-            this.groupBox1.Controls.Add(this.txtFechaNacimiento);
             this.groupBox1.Controls.Add(this.txtCorreo);
             this.groupBox1.Controls.Add(this.txtCelular);
             this.groupBox1.Controls.Add(this.txtTelefono);
@@ -140,7 +164,7 @@
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Location = new System.Drawing.Point(51, 91);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(730, 271);
+            this.groupBox1.Size = new System.Drawing.Size(720, 271);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
@@ -148,7 +172,7 @@
             // rbFemenino
             // 
             this.rbFemenino.AutoSize = true;
-            this.rbFemenino.Location = new System.Drawing.Point(603, 138);
+            this.rbFemenino.Location = new System.Drawing.Point(560, 139);
             this.rbFemenino.Name = "rbFemenino";
             this.rbFemenino.Size = new System.Drawing.Size(71, 17);
             this.rbFemenino.TabIndex = 25;
@@ -159,7 +183,7 @@
             // 
             this.rbMasculino.AutoSize = true;
             this.rbMasculino.Checked = true;
-            this.rbMasculino.Location = new System.Drawing.Point(524, 138);
+            this.rbMasculino.Location = new System.Drawing.Point(481, 139);
             this.rbMasculino.Name = "rbMasculino";
             this.rbMasculino.Size = new System.Drawing.Size(73, 17);
             this.rbMasculino.TabIndex = 24;
@@ -167,32 +191,25 @@
             this.rbMasculino.Text = "Masculino";
             this.rbMasculino.UseVisualStyleBackColor = true;
             // 
-            // txtFechaNacimiento
-            // 
-            this.txtFechaNacimiento.Location = new System.Drawing.Point(524, 229);
-            this.txtFechaNacimiento.Name = "txtFechaNacimiento";
-            this.txtFechaNacimiento.Size = new System.Drawing.Size(147, 20);
-            this.txtFechaNacimiento.TabIndex = 23;
-            // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(524, 181);
+            this.txtCorreo.Location = new System.Drawing.Point(481, 182);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(147, 20);
+            this.txtCorreo.Size = new System.Drawing.Size(200, 20);
             this.txtCorreo.TabIndex = 22;
             // 
             // txtCelular
             // 
-            this.txtCelular.Location = new System.Drawing.Point(524, 91);
+            this.txtCelular.Location = new System.Drawing.Point(481, 92);
             this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(147, 20);
+            this.txtCelular.Size = new System.Drawing.Size(200, 20);
             this.txtCelular.TabIndex = 20;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(524, 45);
+            this.txtTelefono.Location = new System.Drawing.Point(481, 46);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(147, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(200, 20);
             this.txtTelefono.TabIndex = 19;
             // 
             // txtDireccion
@@ -226,7 +243,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(389, 232);
+            this.label10.Location = new System.Drawing.Point(369, 233);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(90, 13);
             this.label10.TabIndex = 14;
@@ -235,7 +252,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(389, 188);
+            this.label9.Location = new System.Drawing.Point(369, 189);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(37, 13);
             this.label9.TabIndex = 13;
@@ -244,7 +261,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(389, 94);
+            this.label8.Location = new System.Drawing.Point(369, 95);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 13);
             this.label8.TabIndex = 12;
@@ -253,7 +270,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(389, 144);
+            this.label7.Location = new System.Drawing.Point(369, 145);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(29, 13);
             this.label7.TabIndex = 11;
@@ -262,7 +279,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(389, 48);
+            this.label6.Location = new System.Drawing.Point(369, 49);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 10;
@@ -323,16 +340,6 @@
             this.label11.TabIndex = 6;
             this.label11.Text = "Gestionar datos paciente";
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(255, 382);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 8;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // btnActualizar
             // 
             this.btnActualizar.Location = new System.Drawing.Point(383, 382);
@@ -344,7 +351,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(545, 382);
+            this.btnEliminar.Location = new System.Drawing.Point(528, 382);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 10;
@@ -361,39 +368,32 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // nombre
+            // btnGuardar
             // 
-            this.nombre.HeaderText = "nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.Width = 150;
+            this.btnGuardar.Location = new System.Drawing.Point(255, 382);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 12;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // apellidoPaterno
+            // dtpFechaNacimiento
             // 
-            this.apellidoPaterno.HeaderText = "apellidoPaterno";
-            this.apellidoPaterno.Name = "apellidoPaterno";
-            this.apellidoPaterno.Width = 150;
-            // 
-            // apellidoMaterno
-            // 
-            this.apellidoMaterno.HeaderText = "apellidoMaterno";
-            this.apellidoMaterno.Name = "apellidoMaterno";
-            this.apellidoMaterno.Width = 150;
-            // 
-            // dni
-            // 
-            this.dni.HeaderText = "dni";
-            this.dni.Name = "dni";
-            this.dni.Width = 150;
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(481, 226);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaNacimiento.TabIndex = 13;
             // 
             // frm_crudPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 700);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxBuscarPaciente);
@@ -417,7 +417,6 @@
         private System.Windows.Forms.GroupBox groupBoxBuscarPaciente;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtFechaNacimiento;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.TextBox txtCelular;
         private System.Windows.Forms.TextBox txtTelefono;
@@ -436,7 +435,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.RadioButton rbFemenino;
@@ -446,5 +444,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoPaterno;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoMaterno;
         private System.Windows.Forms.DataGridViewTextBoxColumn dni;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
     }
 }

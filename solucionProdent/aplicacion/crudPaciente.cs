@@ -21,6 +21,7 @@ namespace aplicacion
             pacienteDAO = new pacienteDAO(cn);
         }
 
+
         public List<Paciente> listarPacientes()
         {
             try
@@ -35,5 +36,24 @@ namespace aplicacion
                 throw e;
             }
         }
+
+        public int ingresarPaciente(Paciente paciente)
+        {
+            try
+            {
+                cn.abrirConexion();
+                int r = pacienteDAO.ingresar(paciente);
+                cn.cerrarConexion();
+                return r;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+
+        //fin de clase
     }
 }
