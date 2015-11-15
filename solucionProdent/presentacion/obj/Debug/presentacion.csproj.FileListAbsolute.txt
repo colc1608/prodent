@@ -15,3 +15,6 @@ C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionPro
 C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.csproj.GenerateResource.Cache
 C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.exe
 C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.pdb
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\bin\Debug\presentacion.exe.config
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.exe
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.pdb

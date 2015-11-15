@@ -39,6 +39,8 @@
             this.menuCitaMedica = new System.Windows.Forms.ToolStripMenuItem();
             this.tratamientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,24 +92,27 @@
             // menuItemPaciente
             // 
             this.menuItemPaciente.Name = "menuItemPaciente";
-            this.menuItemPaciente.Size = new System.Drawing.Size(152, 22);
+            this.menuItemPaciente.Size = new System.Drawing.Size(122, 22);
             this.menuItemPaciente.Text = "Paciente";
             this.menuItemPaciente.Click += new System.EventHandler(this.menuItemPaciente_Click);
             // 
             // medicoToolStripMenuItem
             // 
             this.medicoToolStripMenuItem.Name = "medicoToolStripMenuItem";
-            this.medicoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.medicoToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.medicoToolStripMenuItem.Text = "Medico";
             // 
             // asistenteToolStripMenuItem
             // 
             this.asistenteToolStripMenuItem.Name = "asistenteToolStripMenuItem";
-            this.asistenteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.asistenteToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.asistenteToolStripMenuItem.Text = "Asistente";
             // 
             // menuCitaMedica
             // 
+            this.menuCitaMedica.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarToolStripMenuItem,
+            this.modificarToolStripMenuItem});
             this.menuCitaMedica.Name = "menuCitaMedica";
             this.menuCitaMedica.Size = new System.Drawing.Size(82, 20);
             this.menuCitaMedica.Text = "Cita Medica";
@@ -123,6 +128,18 @@
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
+            // 
+            // registrarToolStripMenuItem
+            // 
+            this.registrarToolStripMenuItem.Name = "registrarToolStripMenuItem";
+            this.registrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.registrarToolStripMenuItem.Text = "Registrar";
+            // 
+            // modificarToolStripMenuItem
+            // 
+            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.modificarToolStripMenuItem.Text = "Modificar";
             // 
             // frm_principal
             // 
@@ -153,5 +170,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuCitaMedica;
         private System.Windows.Forms.ToolStripMenuItem tratamientoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
     }
 }
