@@ -31,7 +31,7 @@ namespace presentacion
         {
             try
             {
-                crudPaciente crud = new crudPaciente();
+                ServicioPaciente crud = new ServicioPaciente();
                 listaDePacientes = crud.listarPacientes();
                 dataPacientes.Rows.Clear();
                 foreach (Paciente paciente in listaDePacientes)
@@ -44,7 +44,8 @@ namespace presentacion
             {
                 MessageBox.Show(this, "Ocurrio un problema al LISTAR los pacientes disponibles. \n\nIntente de nuevo o verifique con el Administrador.", 
                     "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine(err.ToString());
+                System.Console.WriteLine("ERROR -> presentacion -> FRM-CRUDPACIENTE -> CARGAR LISTADO DE PACIENTES " + err);
+                //Console.WriteLine(err.ToString());
             }
         }
 
@@ -116,7 +117,7 @@ namespace presentacion
             }
             try
             {
-                crudPaciente crud = new crudPaciente();
+                ServicioPaciente crud = new ServicioPaciente();
                 registros_afectados = crud.ingresarPaciente(objPaciente);
                 if (registros_afectados == 1)
                     MessageBox.Show("El paciente fue creado.", "PRODENT: Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -131,7 +132,7 @@ namespace presentacion
             catch (Exception err)
             {
                 MessageBox.Show(this, "Ocurrio un problema al guardar el paciente. \n\nIntente de nuevo o verifique con el Administrador.", "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //System.Console.WriteLine("el tipo de error es "+ err);
+                System.Console.WriteLine("ERROR -> CAPA PRESENTACION -> FRM-CRUDPACIENTE -> btn GUARDAR  " + err);
             }
         }//fin de guardar
 
@@ -176,7 +177,7 @@ namespace presentacion
             }
             try
             {
-                crudPaciente crud = new crudPaciente();
+                ServicioPaciente crud = new ServicioPaciente();
                 registros_afectados = crud.modificarPaciente(objPaciente);
                 if (registros_afectados == 1){
                     MessageBox.Show("El paciente fue actualizado.", "PRODENT: Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -191,7 +192,7 @@ namespace presentacion
             }
             catch (Exception err)
             {
-                //System.Console.WriteLine("el tipo de error es "+ err);
+                System.Console.WriteLine("ERROR -> CAPA PRESENTACION -> FRM-CRUDPACIENTE -> BTN ACTUALIZAR " + err);
                 MessageBox.Show(this, "Ocurrio un problema al actualizado el paciente. \n\nIntente de nuevo o verifique con el Administrador.", "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }//fin de actualizar
@@ -204,6 +205,10 @@ namespace presentacion
             txtApellidoPaterno.Text = objPacienteSeleccionado.ApellidoPaterno;
             txtApellidoMaterno.Text = objPacienteSeleccionado.ApellidoMaterno;
             txtDNI.Text = objPacienteSeleccionado.Dni;
+            txtDireccion.Text = objPacienteSeleccionado.Direccion;
+            txtCelular.Text = objPacienteSeleccionado.Celular;
+            txtTelefono.Text = objPacienteSeleccionado.Telefono;
+            txtCorreo.Text = objPacienteSeleccionado.Correo;
             btnNuevo.Text = "Nuevo";
             activaBotones(true,false,true);
             activarCajas(true);
@@ -219,7 +224,7 @@ namespace presentacion
             if(resultado == DialogResult.Yes){
                 try
                 {
-                    crudPaciente crud = new crudPaciente();
+                    ServicioPaciente crud = new ServicioPaciente();
                     registros_afectados = crud.eliminarPaciente(objPacienteSeleccionado);
                     if (registros_afectados == 1)
                     {
@@ -235,7 +240,7 @@ namespace presentacion
                 }
                 catch (Exception err)
                 {
-                    //System.Console.WriteLine("el tipo de error es "+ err);
+                    System.Console.WriteLine("ERROR -> CAPA PRESENTACION -> FRM-CRUDPACIENTE -> BTN ELIMINAR " + err);
                     MessageBox.Show(this, "Ocurrio un problema al actualizado el paciente. \n\nIntente de nuevo o verifique con el Administrador.", "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -244,6 +249,11 @@ namespace presentacion
                 activarCajas(false);
                 activaBotones(true,false,false);
             }
+        }
+
+        private void frm_crudPaciente_Load(object sender, EventArgs e)
+        {
+
         }
 
 

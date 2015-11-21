@@ -82,7 +82,7 @@
             this.dataPacientes.Location = new System.Drawing.Point(33, 77);
             this.dataPacientes.Name = "dataPacientes";
             this.dataPacientes.ReadOnly = true;
-            this.dataPacientes.Size = new System.Drawing.Size(648, 143);
+            this.dataPacientes.Size = new System.Drawing.Size(648, 164);
             this.dataPacientes.TabIndex = 0;
             this.dataPacientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataPacientes_MouseClick);
             // 
@@ -410,6 +410,7 @@
             this.Controls.Add(this.groupBoxBuscarPaciente);
             this.Name = "frm_crudPaciente";
             this.Text = "frm_crudPaciente";
+            this.Load += new System.EventHandler(this.frm_crudPaciente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataPacientes)).EndInit();
             this.groupBoxBuscarPaciente.ResumeLayout(false);
             this.groupBoxBuscarPaciente.PerformLayout();

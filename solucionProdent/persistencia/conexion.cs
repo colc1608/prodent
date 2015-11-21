@@ -23,9 +23,11 @@ namespace persistencia
                 //"Data Source=(local);Initial Catalog=prodent;Integrated Security=true";
                 cn.Open();
             }
-            catch (Exception e)
+            catch (Exception err)
             {
-                throw e;
+                System.Console.WriteLine("ERROR -> persistencia -> conexion -> abrir conexion " + err); 
+                throw err;
+                
             }
 
         }

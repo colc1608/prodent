@@ -28,9 +28,10 @@ namespace persistencia
                 registros_afectados = comando.ExecuteNonQuery();
                 return registros_afectados;
             }
-            catch (Exception e)
+            catch (Exception err)
             {
-                throw e;
+                System.Console.WriteLine("ERROR -> persistencia -> pacienteDAO -> ingresar " + err);
+                throw err;
             }
         }//fin de ingresar paciente
 
@@ -58,9 +59,10 @@ namespace persistencia
                 registros_afectados = comando.ExecuteNonQuery();
                 return registros_afectados;
             }
-            catch (Exception e)
+            catch (Exception err)
             {
-                throw e;
+                System.Console.WriteLine("ERROR -> persistencia -> pacienteDAO -> modificar " + err);
+                throw err;
             }
         }//fin de mofificar
 
@@ -75,9 +77,10 @@ namespace persistencia
                 registros_afectados = comando.ExecuteNonQuery();
                 return registros_afectados;
             }
-            catch (Exception e)
+            catch (Exception err)
             {
-                throw e;
+                System.Console.WriteLine("ERROR -> persistencia -> pacienteDAO -> eliminar " + err);
+                throw err;
             }
         }
 
@@ -98,9 +101,10 @@ namespace persistencia
                 resultado.Close();
                 return listaDePacientes;
             }
-            catch (Exception e)
+            catch (Exception err)
             {
-                throw e;
+                System.Console.WriteLine("ERROR -> persistencia -> pacienteDAO -> listar " + err);
+                throw err;
             }
         }//fin de listar
 

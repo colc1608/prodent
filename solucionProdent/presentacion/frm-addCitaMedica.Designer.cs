@@ -30,20 +30,20 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnBuscarPaciente = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtDNI = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnBuscarPaciente = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnBuscarHorario = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cmbEspecialidad = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tpFecha = new System.Windows.Forms.DateTimePicker();
+            this.dataHorarioAtencion = new System.Windows.Forms.DataGridView();
             this.Medico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +51,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataHorarioAtencion)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -65,11 +65,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtDNI);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtApellido);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnBuscarPaciente);
             this.groupBox1.Location = new System.Drawing.Point(35, 49);
@@ -79,53 +79,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Paciente";
             // 
-            // btnBuscarPaciente
+            // txtDNI
             // 
-            this.btnBuscarPaciente.Location = new System.Drawing.Point(19, 28);
-            this.btnBuscarPaciente.Name = "btnBuscarPaciente";
-            this.btnBuscarPaciente.Size = new System.Drawing.Size(35, 34);
-            this.btnBuscarPaciente.TabIndex = 0;
-            this.btnBuscarPaciente.Text = "b";
-            this.btnBuscarPaciente.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(78, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nombre";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(128, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(126, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(334, 39);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(126, 20);
-            this.textBox2.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(284, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Apellido";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(530, 36);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(126, 20);
-            this.textBox3.TabIndex = 6;
+            this.txtDNI.Location = new System.Drawing.Point(530, 36);
+            this.txtDNI.Name = "txtDNI";
+            this.txtDNI.Size = new System.Drawing.Size(126, 20);
+            this.txtDNI.TabIndex = 6;
             // 
             // label4
             // 
@@ -136,13 +95,54 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "DNI";
             // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(334, 39);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(126, 20);
+            this.txtApellido.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(284, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Apellido";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(128, 36);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(126, 20);
+            this.txtNombre.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(78, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Nombre";
+            // 
+            // btnBuscarPaciente
+            // 
+            this.btnBuscarPaciente.Location = new System.Drawing.Point(19, 28);
+            this.btnBuscarPaciente.Name = "btnBuscarPaciente";
+            this.btnBuscarPaciente.Size = new System.Drawing.Size(35, 34);
+            this.btnBuscarPaciente.TabIndex = 0;
+            this.btnBuscarPaciente.Text = "b";
+            this.btnBuscarPaciente.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnBuscarHorario);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cmbEspecialidad);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.tpFecha);
             this.groupBox2.Location = new System.Drawing.Point(35, 149);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(697, 78);
@@ -150,21 +150,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
-            // dateTimePicker1
+            // btnBuscarHorario
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(81, 28);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.btnBuscarHorario.Location = new System.Drawing.Point(592, 26);
+            this.btnBuscarHorario.Name = "btnBuscarHorario";
+            this.btnBuscarHorario.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarHorario.TabIndex = 4;
+            this.btnBuscarHorario.Text = "Buscar";
+            this.btnBuscarHorario.UseVisualStyleBackColor = true;
+            this.btnBuscarHorario.Click += new System.EventHandler(this.btnBuscarHorario_Click);
             // 
-            // label5
+            // cmbEspecialidad
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 34);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Fecha";
+            this.cmbEspecialidad.FormattingEnabled = true;
+            this.cmbEspecialidad.Location = new System.Drawing.Point(398, 26);
+            this.cmbEspecialidad.Name = "cmbEspecialidad";
+            this.cmbEspecialidad.Size = new System.Drawing.Size(159, 21);
+            this.cmbEspecialidad.TabIndex = 3;
             // 
             // label6
             // 
@@ -175,39 +177,39 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Especialidad";
             // 
-            // comboBox1
+            // label5
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(398, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 21);
-            this.comboBox1.TabIndex = 3;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(28, 34);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Fecha";
             // 
-            // btnBuscarHorario
+            // tpFecha
             // 
-            this.btnBuscarHorario.Location = new System.Drawing.Point(592, 26);
-            this.btnBuscarHorario.Name = "btnBuscarHorario";
-            this.btnBuscarHorario.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscarHorario.TabIndex = 4;
-            this.btnBuscarHorario.Text = "Buscar";
-            this.btnBuscarHorario.UseVisualStyleBackColor = true;
+            this.tpFecha.Location = new System.Drawing.Point(81, 28);
+            this.tpFecha.Name = "tpFecha";
+            this.tpFecha.Size = new System.Drawing.Size(200, 20);
+            this.tpFecha.TabIndex = 0;
+            this.tpFecha.Value = new System.DateTime(2015, 11, 20, 0, 0, 0, 0);
             // 
-            // dataGridView1
+            // dataHorarioAtencion
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataHorarioAtencion.AllowUserToAddRows = false;
+            this.dataHorarioAtencion.AllowUserToDeleteRows = false;
+            this.dataHorarioAtencion.AllowUserToOrderColumns = true;
+            this.dataHorarioAtencion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataHorarioAtencion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Medico,
             this.Inicio,
             this.Fin,
             this.Consultorio});
-            this.dataGridView1.Location = new System.Drawing.Point(35, 250);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(697, 263);
-            this.dataGridView1.TabIndex = 3;
+            this.dataHorarioAtencion.Location = new System.Drawing.Point(35, 250);
+            this.dataHorarioAtencion.Name = "dataHorarioAtencion";
+            this.dataHorarioAtencion.ReadOnly = true;
+            this.dataHorarioAtencion.Size = new System.Drawing.Size(697, 263);
+            this.dataHorarioAtencion.TabIndex = 3;
             // 
             // Medico
             // 
@@ -252,7 +254,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 601);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataHorarioAtencion);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -262,7 +264,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataHorarioAtencion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,20 +274,20 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBuscarPaciente;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnBuscarHorario;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbEspecialidad;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DateTimePicker tpFecha;
+        private System.Windows.Forms.DataGridView dataHorarioAtencion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Medico;
         private System.Windows.Forms.DataGridViewTextBoxColumn Inicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fin;

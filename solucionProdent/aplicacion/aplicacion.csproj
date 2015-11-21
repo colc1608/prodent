@@ -40,8 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="crudMedico.cs" />
-    <Compile Include="crudPaciente.cs" />
+    <Compile Include="ServicioPaciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicioHorario.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dominio\dominio.csproj">

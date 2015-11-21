@@ -22,5 +22,11 @@ namespace presentacion
             frm_crudPaciente frmCrudPaciente = new frm_crudPaciente();
             frmCrudPaciente.ShowDialog();
         }
+
+        private void frmaddCitaMedica_Click(object sender, EventArgs e)
+        {
+            frm_addCitaMedica frmCitaMedica = new frm_addCitaMedica();
+            frmCitaMedica.ShowDialog();
+        }
     }
 }
