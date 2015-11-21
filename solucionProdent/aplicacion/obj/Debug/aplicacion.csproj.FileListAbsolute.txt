@@ -7,3 +7,12 @@ C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionPro
 C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\aplicacion\obj\Debug\aplicacion.csprojResolveAssemblyReference.cache
 C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\aplicacion\obj\Debug\aplicacion.dll
 C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\aplicacion\obj\Debug\aplicacion.pdb
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\aplicacion\bin\Debug\aplicacion.dll
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\aplicacion\bin\Debug\aplicacion.pdb
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\aplicacion\bin\Debug\dominio.dll
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\aplicacion\bin\Debug\persistencia.dll
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\aplicacion\bin\Debug\dominio.pdb
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\aplicacion\bin\Debug\persistencia.pdb
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\aplicacion\obj\Debug\aplicacion.csprojResolveAssemblyReference.cache
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\aplicacion\obj\Debug\aplicacion.dll
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\aplicacion\obj\Debug\aplicacion.pdb

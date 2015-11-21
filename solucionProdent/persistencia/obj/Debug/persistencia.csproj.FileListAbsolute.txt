@@ -5,3 +5,10 @@ C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionPro
 C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\persistencia\obj\Debug\persistencia.csprojResolveAssemblyReference.cache
 C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\persistencia\obj\Debug\persistencia.dll
 C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\persistencia\obj\Debug\persistencia.pdb
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\persistencia\bin\Debug\persistencia.dll
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\persistencia\bin\Debug\persistencia.pdb
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\persistencia\bin\Debug\dominio.dll
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\persistencia\bin\Debug\dominio.pdb
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\persistencia\obj\Debug\persistencia.csprojResolveAssemblyReference.cache
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\persistencia\obj\Debug\persistencia.dll
+C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\persistencia\obj\Debug\persistencia.pdb

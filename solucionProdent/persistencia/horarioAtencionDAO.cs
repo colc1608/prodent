@@ -23,14 +23,16 @@ namespace persistencia
             List<HorarioAtencion> listaDeHorariosDisponibles = new List<HorarioAtencion>();
             try
             {
-                String sentenciaSQL =   " select m.nombre, ha.inicio, ha.fin, ha.consultorio, m.id as 'idMedico', ha.id as 'idHorario' "
-                                        + " from horarioAtencion ha, medico m "
-                                        + " where "
-                                        + " m.id = ha.idMedico and "
-                                        + " m.idespecialidad = " + especialidad + " and "
-                                        + " ha.fecha = ' " + fecha + " ' and "
-                                        + " ha.estado = 1 "
-                                        + " order by ha.inicio; ";
+                String sentenciaSQL = " select m.nombre + ' ' +  m.apellidoPaterno+ ' ' +  m.apellidoMaterno as nombre , ha.inicio, ha.fin, ha.consultorio, "
+                                    + " m.id as 'idMedico', ha.id as 'idHorario'  "
+                                    + " from horarioAtencion ha, medico m  "
+                                    + " where  "
+                                    + " m.id = ha.idMedico and  "
+                                    + " m.idespecialidad = " + especialidad + " and  "
+                                    + " ha.fecha = ' " + fecha + " ' and  "
+                                    + " ha.estado = 1  "
+                                    + " order by ha.inicio;  ";
+
                 SqlDataReader resultado = cn.ejecutarConsulta(sentenciaSQL);
                 while (resultado.Read())
                 {
@@ -56,15 +58,15 @@ namespace persistencia
             HorarioAtencion ha = new HorarioAtencion();
             Medico me = new Medico();
             me.Nombre = resultado.GetString(0);
-            ha.Inicio = resultado.GetDateTime(1);
-            ha.Fin = resultado.GetDateTime(2);
+            ha.Inicio = resultado.GetString(1);
+            ha.Fin = resultado.GetString(2);
             ha.Consultorio = resultado.GetString(3);
             me.Id = resultado.GetInt32(4);
             ha.Id = resultado.GetInt32(5);
             ha.Medico = me;
-
             return ha;
-        }
+
+        }//fin de crear objeto HORARIO
 
 
 

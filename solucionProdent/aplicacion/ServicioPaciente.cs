@@ -33,7 +33,7 @@ namespace aplicacion
             }
             catch (Exception err)
             {
-                System.Console.WriteLine("ERROR -> capa aplicacion -> crud paciente -> listar " + err); 
+                System.Console.WriteLine("ERROR -> aplicacion -> Servicio paciente -> listar " + err + "\n"); 
                 throw err;
             }
         }

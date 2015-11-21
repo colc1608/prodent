@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="asistenteDAO.cs" />
     <Compile Include="conexion.cs" />
+    <Compile Include="especialidadDAO.cs" />
     <Compile Include="horarioAtencionDAO.cs" />
     <Compile Include="medicoDAO.cs" />
     <Compile Include="pacienteDAO.cs" />

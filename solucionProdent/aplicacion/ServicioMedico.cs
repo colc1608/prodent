@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace aplicacion
 {
-    class crudMedico
+    class ServicioMedico
     {
 
     }

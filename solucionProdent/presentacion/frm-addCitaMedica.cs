@@ -15,9 +15,14 @@ namespace presentacion
 {
     public partial class frm_addCitaMedica : Form
     {
+
+        List<Especialidad> listaDeEspecialidades = new List<Especialidad>();
+
+
         public frm_addCitaMedica()
         {
             InitializeComponent();
+            cargarEspecialidades();
         }
 
         private void btnBuscarHorario_Click(object sender, EventArgs e)
@@ -25,12 +30,17 @@ namespace presentacion
             
             try
             {
+                dataHorarioAtencion.Rows.Clear();
                 string fecha = tpFecha.Value.ToString("dd/MM/yyyy");
-                
-                
+                Especialidad especialidad = new Especialidad();
+                int posicionCombo = cboEspecialidad.SelectedIndex;
+                especialidad = listaDeEspecialidades[posicionCombo];
+
+                txtNombre.Text = especialidad.Id.ToString();
+
                 ServicioHorario serviceHA = new ServicioHorario();
                 List<HorarioAtencion> listaDeHorarios = new List<HorarioAtencion>();
-                listaDeHorarios = serviceHA.listarHorariosDisponibles(fecha, "1");
+                listaDeHorarios = serviceHA.listarHorariosDisponibles(fecha, especialidad.Id.ToString() );
                 dataHorarioAtencion.Rows.Clear();
                 foreach (HorarioAtencion ha in listaDeHorarios)
                 {
@@ -42,9 +52,34 @@ namespace presentacion
             {
                 MessageBox.Show(this, "Ocurrio un problema al LISTAR los horarios disponibles. \n\nIntente de nuevo o verifique con el Administrador.",
                     "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                System.Console.WriteLine("ERROR -> presentacion -> FRM-CRUDPACIENTE -> CARGAR LISTADO DE PACIENTES " + err);
-                //Console.WriteLine(err.ToString());
+                System.Console.WriteLine("ERROR -> presentacion -> FRM-addCitaMedica -> btn Buscar Horario Disponible " + err + "\n");
+                
+            }
+        }//fin de buscar HORARIO DE ATENCION
+
+
+        private void cargarEspecialidades()
+        {
+            try {
+                //ComboBox model = new ComboBox();
+                listaDeEspecialidades = new ServicioEspecialidad().listarEspecialidades();
+                foreach (Especialidad objEspecialidad in listaDeEspecialidades) {
+                    cboEspecialidad.Items.Add(objEspecialidad.Descripcion);
+                }
+                //cboEspecialidad = model;
+            } catch (Exception err) {
+                System.Console.WriteLine("ERROR -> presentacion -> FRM-addCitaMedica -> CARGAR especialidades " + err + "\n");
             }
         }
+
+
+
+
+
+
+
+
+
+
     }
 }

@@ -39,7 +39,7 @@
             this.btnBuscarPaciente = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBuscarHorario = new System.Windows.Forms.Button();
-            this.cmbEspecialidad = new System.Windows.Forms.ComboBox();
+            this.cboEspecialidad = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tpFecha = new System.Windows.Forms.DateTimePicker();
@@ -139,7 +139,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnBuscarHorario);
-            this.groupBox2.Controls.Add(this.cmbEspecialidad);
+            this.groupBox2.Controls.Add(this.cboEspecialidad);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.tpFecha);
@@ -160,13 +160,13 @@
             this.btnBuscarHorario.UseVisualStyleBackColor = true;
             this.btnBuscarHorario.Click += new System.EventHandler(this.btnBuscarHorario_Click);
             // 
-            // cmbEspecialidad
+            // cboEspecialidad
             // 
-            this.cmbEspecialidad.FormattingEnabled = true;
-            this.cmbEspecialidad.Location = new System.Drawing.Point(398, 26);
-            this.cmbEspecialidad.Name = "cmbEspecialidad";
-            this.cmbEspecialidad.Size = new System.Drawing.Size(159, 21);
-            this.cmbEspecialidad.TabIndex = 3;
+            this.cboEspecialidad.FormattingEnabled = true;
+            this.cboEspecialidad.Location = new System.Drawing.Point(398, 26);
+            this.cboEspecialidad.Name = "cboEspecialidad";
+            this.cboEspecialidad.Size = new System.Drawing.Size(159, 21);
+            this.cboEspecialidad.TabIndex = 3;
             // 
             // label6
             // 
@@ -223,21 +223,21 @@
             this.Inicio.HeaderText = "Inicio";
             this.Inicio.Name = "Inicio";
             this.Inicio.ReadOnly = true;
-            this.Inicio.Width = 150;
+            this.Inicio.Width = 120;
             // 
             // Fin
             // 
             this.Fin.HeaderText = "Fin";
             this.Fin.Name = "Fin";
             this.Fin.ReadOnly = true;
-            this.Fin.Width = 150;
+            this.Fin.Width = 120;
             // 
             // Consultorio
             // 
             this.Consultorio.HeaderText = "Consultorio";
             this.Consultorio.Name = "Consultorio";
             this.Consultorio.ReadOnly = true;
-            this.Consultorio.Width = 150;
+            this.Consultorio.Width = 120;
             // 
             // btnGuardar
             // 
@@ -283,15 +283,15 @@
         private System.Windows.Forms.Button btnBuscarPaciente;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnBuscarHorario;
-        private System.Windows.Forms.ComboBox cmbEspecialidad;
+        private System.Windows.Forms.ComboBox cboEspecialidad;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker tpFecha;
         private System.Windows.Forms.DataGridView dataHorarioAtencion;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Medico;
         private System.Windows.Forms.DataGridViewTextBoxColumn Inicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fin;
         private System.Windows.Forms.DataGridViewTextBoxColumn Consultorio;
-        private System.Windows.Forms.Button btnGuardar;
     }
 }

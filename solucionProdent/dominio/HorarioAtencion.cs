@@ -31,20 +31,22 @@ namespace dominio
             get { return fecha; }
             set { fecha = value; }
         }
-        private DateTime inicio;
 
-        public DateTime Inicio
+        private string inicio;
+
+        public string Inicio
         {
             get { return inicio; }
             set { inicio = value; }
         }
-        private DateTime fin;
+        private string fin;
 
-        public DateTime Fin
+        public string Fin
         {
             get { return fin; }
             set { fin = value; }
         }
+
         private string consultorio;
 
         public string Consultorio
