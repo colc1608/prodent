@@ -38,6 +38,22 @@ namespace aplicacion
             }
         }
 
+        public List<Paciente> BuscarPacientes(string tipo, string valor)
+        {
+            try
+            {
+                cn.abrirConexion();
+                List<Paciente> listaPacientes = pacienteDAO.buscarPaciente(tipo, valor);
+                cn.cerrarConexion();
+                return listaPacientes;
+            }
+            catch (Exception err)
+            {
+                System.Console.WriteLine("ERROR -> aplicacion -> Servicio paciente -> buscar " + err + "\n");
+                throw err;
+            }
+        }
+
         public int ingresarPaciente(Paciente paciente)
         {
             try

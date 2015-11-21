@@ -81,7 +81,8 @@
             // 
             // txtDNI
             // 
-            this.txtDNI.Location = new System.Drawing.Point(530, 36);
+            this.txtDNI.Enabled = false;
+            this.txtDNI.Location = new System.Drawing.Point(554, 36);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(126, 20);
             this.txtDNI.TabIndex = 6;
@@ -89,7 +90,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(498, 39);
+            this.label4.Location = new System.Drawing.Point(522, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(26, 13);
             this.label4.TabIndex = 5;
@@ -97,15 +98,16 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(334, 39);
+            this.txtApellido.Enabled = false;
+            this.txtApellido.Location = new System.Drawing.Point(322, 39);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(126, 20);
+            this.txtApellido.Size = new System.Drawing.Size(159, 20);
             this.txtApellido.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(284, 42);
+            this.label3.Location = new System.Drawing.Point(272, 43);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 3;
@@ -113,9 +115,10 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(128, 36);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(126, 20);
+            this.txtNombre.Size = new System.Drawing.Size(110, 20);
             this.txtNombre.TabIndex = 2;
             // 
             // label2
@@ -135,6 +138,7 @@
             this.btnBuscarPaciente.TabIndex = 0;
             this.btnBuscarPaciente.Text = "b";
             this.btnBuscarPaciente.UseVisualStyleBackColor = true;
+            this.btnBuscarPaciente.Click += new System.EventHandler(this.btnBuscarPaciente_Click);
             // 
             // groupBox2
             // 
@@ -208,6 +212,7 @@
             this.dataHorarioAtencion.Location = new System.Drawing.Point(35, 250);
             this.dataHorarioAtencion.Name = "dataHorarioAtencion";
             this.dataHorarioAtencion.ReadOnly = true;
+            this.dataHorarioAtencion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataHorarioAtencion.Size = new System.Drawing.Size(697, 263);
             this.dataHorarioAtencion.TabIndex = 3;
             // 
@@ -247,6 +252,7 @@
             this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "Registrar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // frm_addCitaMedica
             // 

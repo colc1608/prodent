@@ -30,7 +30,7 @@ namespace persistencia
             }
             catch (Exception err)
             {
-                System.Console.WriteLine("ERROR -> persistencia -> pacienteDAO -> ingresar " + err);
+                System.Console.WriteLine("ERROR -> persistencia -> pacienteDAO -> ingresar " + err + "\n");
                 throw err;
             }
         }//fin de ingresar paciente
@@ -61,7 +61,7 @@ namespace persistencia
             }
             catch (Exception err)
             {
-                System.Console.WriteLine("ERROR -> persistencia -> pacienteDAO -> modificar " + err);
+                System.Console.WriteLine("ERROR -> persistencia -> pacienteDAO -> modificar " + err + "\n");
                 throw err;
             }
         }//fin de mofificar
@@ -79,7 +79,7 @@ namespace persistencia
             }
             catch (Exception err)
             {
-                System.Console.WriteLine("ERROR -> persistencia -> pacienteDAO -> eliminar " + err);
+                System.Console.WriteLine("ERROR -> persistencia -> pacienteDAO -> eliminar " + err + "\n");
                 throw err;
             }
         }
@@ -103,21 +103,40 @@ namespace persistencia
             }
             catch (Exception err)
             {
-                System.Console.WriteLine("ERROR -> persistencia -> pacienteDAO -> listar " + err);
+                System.Console.WriteLine("ERROR -> persistencia -> pacienteDAO -> listar " + err +"\n");
                 throw err;
             }
         }//fin de listar
 
 
-        
+        public List<Paciente> buscarPaciente(string tipo, string valor)
+        {
+            List<Paciente> listaDePacientes = new List<Paciente>();
+            try
+            {
+                String sentenciaSQL = " select * from paciente p where p."+ tipo+" like '%"+valor+"%'; ";
+                SqlDataReader resultado = cn.ejecutarConsulta(sentenciaSQL);
+                while (resultado.Read())
+                {
+                    Paciente objPaciente;
+                    objPaciente = crearObjetoPaciente(resultado);
+                    listaDePacientes.Add(objPaciente);
+                }
+                resultado.Close();
+                return listaDePacientes;
+            }
+            catch (Exception err)
+            {
+                System.Console.WriteLine("ERROR -> persistencia -> pacienteDAO -> listar " + err + "\n");
+                throw err;
+            }
+        }//fin de buscar
 
 
 
         public Paciente crearObjetoPaciente(SqlDataReader resultado)
         {
-            
             Paciente paciente = new Paciente();
-
             paciente.Id = resultado.GetInt32(0);
             paciente.Nombre = resultado.GetString(1);
             paciente.ApellidoPaterno = resultado.GetString(2);
@@ -130,7 +149,6 @@ namespace persistencia
             paciente.Correo = resultado.GetString(9);
             paciente.FechaNacimiento = resultado.GetDateTime(10);
             paciente.Estado = resultado.GetString(11);
-            
             return paciente;
         }
 

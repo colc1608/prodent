@@ -15,16 +15,29 @@ namespace presentacion
 {
     public partial class frm_addCitaMedica : Form
     {
-
+        //variables globales
         List<Especialidad> listaDeEspecialidades = new List<Especialidad>();
+        Paciente objPacienteSeleccionado = new Paciente();
 
-
+        //------------inicio de constructores
         public frm_addCitaMedica()
         {
             InitializeComponent();
-            cargarEspecialidades();
         }
 
+
+        public frm_addCitaMedica(Paciente objPacienteSeleccionado)
+        {
+            InitializeComponent();
+            cargarEspecialidades();
+            this.objPacienteSeleccionado = objPacienteSeleccionado;
+            txtNombre.Text = objPacienteSeleccionado.Nombre.ToString();
+            txtApellido.Text = objPacienteSeleccionado.ApellidoPaterno.ToString() +" "+ objPacienteSeleccionado.ApellidoMaterno.ToString();
+            txtDNI.Text = objPacienteSeleccionado.Dni.ToString();
+        }
+
+        //---------------fin de constructores
+        
         private void btnBuscarHorario_Click(object sender, EventArgs e)
         {
             
@@ -70,6 +83,18 @@ namespace presentacion
             } catch (Exception err) {
                 System.Console.WriteLine("ERROR -> presentacion -> FRM-addCitaMedica -> CARGAR especialidades " + err + "\n");
             }
+        }
+
+        private void btnBuscarPaciente_Click(object sender, EventArgs e)
+        {
+            frm_buscarPaciente frm = new frm_buscarPaciente();
+            frm.ShowDialog();
+            this.Close();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
         }
 
 

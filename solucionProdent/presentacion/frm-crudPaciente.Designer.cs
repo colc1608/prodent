@@ -80,8 +80,10 @@
             this.apellidoMaterno,
             this.dni});
             this.dataPacientes.Location = new System.Drawing.Point(33, 77);
+            this.dataPacientes.MultiSelect = false;
             this.dataPacientes.Name = "dataPacientes";
             this.dataPacientes.ReadOnly = true;
+            this.dataPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataPacientes.Size = new System.Drawing.Size(648, 164);
             this.dataPacientes.TabIndex = 0;
             this.dataPacientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataPacientes_MouseClick);
