@@ -50,6 +50,12 @@
     <Compile Include="frm-addCitaMedica.Designer.cs">
       <DependentUpon>frm-addCitaMedica.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm-buscarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm-buscarPaciente.Designer.cs">
+      <DependentUpon>frm-buscarPaciente.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm-crudAsistente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frm-addCitaMedica.resx">
       <DependentUpon>frm-addCitaMedica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm-buscarPaciente.resx">
+      <DependentUpon>frm-buscarPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm-crudPaciente.resx">
       <DependentUpon>frm-crudPaciente.cs</DependentUpon>
