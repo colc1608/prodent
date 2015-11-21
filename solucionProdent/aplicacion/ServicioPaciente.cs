@@ -65,7 +65,7 @@ namespace aplicacion
             }
             catch (Exception e)
             {
-                System.Console.WriteLine("ERROR -> capa aplicacion -> crud paciente -> ingresar " + e); 
+                System.Console.WriteLine("ERROR -> aplicacion -> crud paciente -> ingresar " + e); 
                 throw e;
             }
         }//fin de ingresar Paciente
@@ -81,7 +81,7 @@ namespace aplicacion
             }
             catch (Exception e)
             {
-                System.Console.WriteLine("ERROR -> capa aplicacion -> crud paciente -> modificar " + e); 
+                System.Console.WriteLine("ERROR -> aplicacion -> crud paciente -> modificar " + e); 
                 throw e;
             }
         }//fin de modificar
@@ -98,7 +98,7 @@ namespace aplicacion
             }
             catch (Exception e)
             {
-                System.Console.WriteLine("ERROR -> capa aplicacion -> crud paciente -> eliminar " + e); 
+                System.Console.WriteLine("ERROR -> aplicacion -> crud paciente -> eliminar " + e); 
                 throw e;
             }
         }//fin de modificar

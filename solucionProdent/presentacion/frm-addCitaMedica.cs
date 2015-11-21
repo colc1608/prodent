@@ -17,7 +17,9 @@ namespace presentacion
     {
         //variables globales
         List<Especialidad> listaDeEspecialidades = new List<Especialidad>();
+        List<HorarioAtencion> listaDeHorarios = new List<HorarioAtencion>();
         Paciente objPacienteSeleccionado = new Paciente();
+        HorarioAtencion objHorarioSeleccionado = new HorarioAtencion();
 
         //------------inicio de constructores
         public frm_addCitaMedica()
@@ -26,11 +28,11 @@ namespace presentacion
         }
 
 
-        public frm_addCitaMedica(Paciente objPacienteSeleccionado)
+        public frm_addCitaMedica(Paciente objPacienteEnviado)
         {
             InitializeComponent();
             cargarEspecialidades();
-            this.objPacienteSeleccionado = objPacienteSeleccionado;
+            objPacienteSeleccionado = objPacienteEnviado;
             txtNombre.Text = objPacienteSeleccionado.Nombre.ToString();
             txtApellido.Text = objPacienteSeleccionado.ApellidoPaterno.ToString() +" "+ objPacienteSeleccionado.ApellidoMaterno.ToString();
             txtDNI.Text = objPacienteSeleccionado.Dni.ToString();
@@ -52,7 +54,7 @@ namespace presentacion
                 txtNombre.Text = especialidad.Id.ToString();
 
                 ServicioHorario serviceHA = new ServicioHorario();
-                List<HorarioAtencion> listaDeHorarios = new List<HorarioAtencion>();
+                
                 listaDeHorarios = serviceHA.listarHorariosDisponibles(fecha, especialidad.Id.ToString() );
                 dataHorarioAtencion.Rows.Clear();
                 foreach (HorarioAtencion ha in listaDeHorarios)
@@ -87,14 +89,38 @@ namespace presentacion
 
         private void btnBuscarPaciente_Click(object sender, EventArgs e)
         {
+            
             frm_buscarPaciente frm = new frm_buscarPaciente();
             frm.ShowDialog();
-            this.Close();
+            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            int registros_afectados;
+            CitaMedica cita = new CitaMedica();
+            cita.Paciente = objPacienteSeleccionado;
+            cita.HorarioAtencion = objHorarioSeleccionado;
+            try
+            {
+                ServicioCitaMedica servicio = new ServicioCitaMedica();
+                registros_afectados = servicio.ingresarCitaMedica(cita);
+                if (registros_afectados == 1)
+                    MessageBox.Show("Su cita medica fue reservada con exito.", "PRODENT: Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Su cita medica NO fue reservada, verifique.", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(this, "Ocurrio un problema al guardar el paciente. \n\nIntente de nuevo o verifique con el Administrador.", "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Console.WriteLine("ERROR -> presentacion -> FRM-addCitaMedica -> btn GUARDAR  " + err + "\n");
+            }
+        }
 
+        private void dataHorarioAtencion_MouseClick(object sender, MouseEventArgs e)
+        {
+            objHorarioSeleccionado = listaDeHorarios[int.Parse(dataHorarioAtencion.CurrentRow.Index.ToString())];
         }
 
 

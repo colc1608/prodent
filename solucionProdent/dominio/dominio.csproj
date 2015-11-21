@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asistente.cs" />
+    <Compile Include="CitaMedica.cs" />
     <Compile Include="Especialidad.cs" />
     <Compile Include="HorarioAtencion.cs" />
     <Compile Include="Medico.cs" />

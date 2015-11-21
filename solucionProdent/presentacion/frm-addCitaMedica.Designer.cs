@@ -215,6 +215,7 @@
             this.dataHorarioAtencion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataHorarioAtencion.Size = new System.Drawing.Size(697, 263);
             this.dataHorarioAtencion.TabIndex = 3;
+            this.dataHorarioAtencion.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataHorarioAtencion_MouseClick);
             // 
             // Medico
             // 
