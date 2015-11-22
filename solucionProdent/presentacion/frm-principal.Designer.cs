@@ -40,6 +40,7 @@
             this.frmaddCitaMedica = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tratamientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAsignarTratamiendo = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -92,20 +93,20 @@
             // menuItemPaciente
             // 
             this.menuItemPaciente.Name = "menuItemPaciente";
-            this.menuItemPaciente.Size = new System.Drawing.Size(152, 22);
+            this.menuItemPaciente.Size = new System.Drawing.Size(122, 22);
             this.menuItemPaciente.Text = "Paciente";
             this.menuItemPaciente.Click += new System.EventHandler(this.menuItemPaciente_Click);
             // 
             // medicoToolStripMenuItem
             // 
             this.medicoToolStripMenuItem.Name = "medicoToolStripMenuItem";
-            this.medicoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.medicoToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.medicoToolStripMenuItem.Text = "Medico";
             // 
             // asistenteToolStripMenuItem
             // 
             this.asistenteToolStripMenuItem.Name = "asistenteToolStripMenuItem";
-            this.asistenteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.asistenteToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.asistenteToolStripMenuItem.Text = "Asistente";
             // 
             // menuCitaMedica
@@ -132,9 +133,18 @@
             // 
             // tratamientoToolStripMenuItem
             // 
+            this.tratamientoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuAsignarTratamiendo});
             this.tratamientoToolStripMenuItem.Name = "tratamientoToolStripMenuItem";
             this.tratamientoToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.tratamientoToolStripMenuItem.Text = "Tratamiento";
+            // 
+            // menuAsignarTratamiendo
+            // 
+            this.menuAsignarTratamiendo.Name = "menuAsignarTratamiendo";
+            this.menuAsignarTratamiendo.Size = new System.Drawing.Size(255, 22);
+            this.menuAsignarTratamiendo.Text = "Asignar tratamiendo a cita medica";
+            this.menuAsignarTratamiendo.Click += new System.EventHandler(this.menuAsignarTratamiento);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -173,5 +183,6 @@
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem frmaddCitaMedica;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuAsignarTratamiendo;
     }
 }

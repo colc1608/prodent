@@ -30,6 +30,7 @@ namespace aplicacion
                 cn.abrirConexion();
                 int r = dao.ingresar(citaMedica);
                 cn.cerrarConexion();
+                System.Console.WriteLine("el valor de el ENTERO en aplicacion es: "+r);
                 return r;
             }
             catch (Exception e)

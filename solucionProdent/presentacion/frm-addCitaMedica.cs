@@ -51,7 +51,7 @@ namespace presentacion
                 int posicionCombo = cboEspecialidad.SelectedIndex;
                 especialidad = listaDeEspecialidades[posicionCombo];
 
-                txtNombre.Text = especialidad.Id.ToString();
+                //txtNombre.Text = especialidad.Id.ToString();
 
                 ServicioHorario serviceHA = new ServicioHorario();
                 
@@ -105,7 +105,7 @@ namespace presentacion
             {
                 ServicioCitaMedica servicio = new ServicioCitaMedica();
                 registros_afectados = servicio.ingresarCitaMedica(cita);
-                if (registros_afectados == 1)
+                if (registros_afectados >= 1)
                     MessageBox.Show("Su cita medica fue reservada con exito.", "PRODENT: Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Su cita medica NO fue reservada, verifique.", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);

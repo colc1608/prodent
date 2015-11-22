@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace presentacion
 {
-    public partial class Form1 : Form
+    public partial class frmAddTratamiento : Form
     {
-        public Form1()
+        public frmAddTratamiento()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            frm_principal frmPrincipal = new frm_principal();
-            frmPrincipal.ShowDialog();
-            Close();
         }
     }
 }

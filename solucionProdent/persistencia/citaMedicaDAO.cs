@@ -23,12 +23,15 @@ namespace persistencia
         public int ingresar(CitaMedica cm)
         {
             int registros_afectados;
-            String sentenciaSQL = " insert into citaMedica(idHorarioAtencion,idPaciente) values(@idHorarioAtencion,@idPaciente) ";
+            String sentenciaSQL = " insert into citaMedica(idHorarioAtencion, idPaciente) values(@idHorarioAtencion, @idPaciente) ";
             try
             {
                 SqlCommand comando = cn.obtenerComandoSQL(sentenciaSQL);
-                comando.Parameters.AddWithValue("@idPaciente", cm.Paciente.Id);
+                System.Console.WriteLine("el id del paciente que llego es: "+cm.Paciente.Id);
+                System.Console.WriteLine("el id de HORARIO que llego es: " + cm.HorarioAtencion.Id);
+
                 comando.Parameters.AddWithValue("@idHorarioAtencion", cm.HorarioAtencion.Id);
+                comando.Parameters.AddWithValue("@idPaciente", cm.Paciente.Id);
                 registros_afectados = comando.ExecuteNonQuery();
                 return registros_afectados;
             }

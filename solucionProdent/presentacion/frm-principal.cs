@@ -28,5 +28,10 @@ namespace presentacion
             frm_addCitaMedica frmCitaMedica = new frm_addCitaMedica();
             frmCitaMedica.ShowDialog();
         }
+
+        private void menuAsignarTratamiento(object sender, EventArgs e)
+        {
+
+        }
     }
 }
