@@ -1,6 +1,6 @@
 ﻿namespace presentacion
 {
-    partial class frm_buscarPaciente
+    partial class frmBuscarPaciente
     {
         /// <summary>
         /// Required designer variable.
@@ -134,7 +134,7 @@
             this.Controls.Add(this.dataPacientes);
             this.Controls.Add(this.txtValor);
             this.Name = "frm_buscarPaciente";
-            this.Text = "frm_buscarPaciente";
+            this.Text = "frmBuscarPaciente";
             ((System.ComponentModel.ISupportInitialize)(this.dataPacientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

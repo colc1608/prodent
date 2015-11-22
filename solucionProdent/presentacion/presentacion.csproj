@@ -50,11 +50,17 @@
     <Compile Include="frm-addCitaMedica.Designer.cs">
       <DependentUpon>frm-addCitaMedica.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm-buscarPaciente.cs">
+    <Compile Include="frmBuscarCitasDePaciente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm-buscarPaciente.Designer.cs">
-      <DependentUpon>frm-buscarPaciente.cs</DependentUpon>
+    <Compile Include="frmBuscarCitasDePaciente.Designer.cs">
+      <DependentUpon>frmBuscarCitasDePaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarPaciente.Designer.cs">
+      <DependentUpon>frmBuscarPaciente.cs</DependentUpon>
     </Compile>
     <Compile Include="frm-crudAsistente.cs">
       <SubType>Form</SubType>
@@ -103,8 +109,11 @@
     <EmbeddedResource Include="frm-addCitaMedica.resx">
       <DependentUpon>frm-addCitaMedica.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm-buscarPaciente.resx">
-      <DependentUpon>frm-buscarPaciente.cs</DependentUpon>
+    <EmbeddedResource Include="frmBuscarCitasDePaciente.resx">
+      <DependentUpon>frmBuscarCitasDePaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarPaciente.resx">
+      <DependentUpon>frmBuscarPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm-crudPaciente.resx">
       <DependentUpon>frm-crudPaciente.cs</DependentUpon>

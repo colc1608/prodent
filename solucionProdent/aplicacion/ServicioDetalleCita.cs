@@ -10,35 +10,36 @@ using persistencia;
 
 namespace aplicacion
 {
-    public class ServicioCitaMedica
+    class ServicioDetalleCita
     {
         private conexion cn;
-        private citaMedicaDAO dao;
+        private DetalleCitaDAO dao;
 
 
-        public ServicioCitaMedica() 
+        public ServicioDetalleCita() 
         {
             cn = new conexion();
-            dao = new citaMedicaDAO(cn);
+            dao = new DetalleCitaDAO(cn);
         }
 
 
-        public int ingresarCitaMedica(CitaMedica citaMedica)
+        public int ingresarPaciente(List<DetalleCita> detalleCita)
         {
             try
             {
                 cn.abrirConexion();
-                int r = dao.ingresar(citaMedica);
+                int r = dao.ingresar(detalleCita);
                 cn.cerrarConexion();
-                //System.Console.WriteLine("el valor de el ENTERO en aplicacion es: "+r);
                 return r;
             }
             catch (Exception e)
             {
-                System.Console.WriteLine("ERROR -> aplicacion -> servicio cita medica -> ingresar " + e + "\n");
+                System.Console.WriteLine("ERROR -> aplicacion -> servicio detalle cita -> ingresar " + e + "\n ");
                 throw e;
             }
         }//fin de ingresar Paciente
+
+
 
 
 

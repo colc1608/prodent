@@ -10,7 +10,7 @@ namespace dominio
     {
         private int id;
         private string nombre;
-        private double precio;
+        private decimal precio;
         private string estado;
 
 
@@ -28,7 +28,7 @@ namespace dominio
         }
         
 
-        public double Precio
+        public decimal Precio
         {
             get { return precio; }
             set { precio = value; }

@@ -90,7 +90,7 @@ namespace presentacion
         private void btnBuscarPaciente_Click(object sender, EventArgs e)
         {
             
-            frm_buscarPaciente frm = new frm_buscarPaciente();
+            frmBuscarPaciente frm = new frmBuscarPaciente();
             frm.ShowDialog();
             
         }

@@ -36,3 +36,7 @@ C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProden
 C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.csproj.GenerateResource.Cache
 C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.frm_buscarPaciente.resources
 C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.frmAddTratamiento.resources
+C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.frmAddTratamiento.resources
+C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.frmBuscarTratamiento.resources
+C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.frmBuscarPaciente.resources
+C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.frmBuscarCitasDePaciente.resources

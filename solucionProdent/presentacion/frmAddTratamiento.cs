@@ -16,5 +16,17 @@ namespace presentacion
         {
             InitializeComponent();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            frmBuscarCitasDePaciente frm = new frmBuscarCitasDePaciente();
+            frm.ShowDialog();
+        }
+
+        private void btnBuscarTratamientos_Click(object sender, EventArgs e)
+        {
+            frmBuscarTratamiento frm = new frmBuscarTratamiento();
+            frm.ShowDialog();
+        }
     }
 }

@@ -10,16 +10,18 @@ using System.Windows.Forms;
 //referencias
 using dominio;
 using aplicacion;
+
+
 namespace presentacion
 {
-    public partial class frm_buscarPaciente : Form
+    public partial class frmBuscarPaciente : Form
     {
         //variables globales
         List<Paciente> listaDePacientes = new List<Paciente>();
         Paciente objPacienteSeleccionado = new Paciente();
 
 
-        public frm_buscarPaciente()
+        public frmBuscarPaciente()
         {
             InitializeComponent();
         }

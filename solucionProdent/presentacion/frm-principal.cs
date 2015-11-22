@@ -32,6 +32,9 @@ namespace presentacion
         private void menuAsignarTratamiento(object sender, EventArgs e)
         {
 
+            frmAddTratamiento frm = new frmAddTratamiento();
+            frm.ShowDialog();
+
         }
     }
 }

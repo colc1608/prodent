@@ -40,11 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ServicioCitaMedica.cs" />
+    <Compile Include="ServicioDetalleCita.cs" />
     <Compile Include="ServicioEspecialidad.cs" />
     <Compile Include="ServicioMedico.cs" />
     <Compile Include="ServicioPaciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicioHorario.cs" />
+    <Compile Include="ServicioTratamiento.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dominio\dominio.csproj">
