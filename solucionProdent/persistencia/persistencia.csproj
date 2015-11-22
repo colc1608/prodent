@@ -42,6 +42,7 @@
     <Compile Include="asistenteDAO.cs" />
     <Compile Include="citaMedicaDAO.cs" />
     <Compile Include="conexion.cs" />
+    <Compile Include="DetalleCitaDAO.cs" />
     <Compile Include="especialidadDAO.cs" />
     <Compile Include="horarioAtencionDAO.cs" />
     <Compile Include="medicoDAO.cs" />
