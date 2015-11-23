@@ -214,7 +214,7 @@
             this.dataHorarioAtencion.Name = "dataHorarioAtencion";
             this.dataHorarioAtencion.ReadOnly = true;
             this.dataHorarioAtencion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataHorarioAtencion.Size = new System.Drawing.Size(697, 263);
+            this.dataHorarioAtencion.Size = new System.Drawing.Size(697, 168);
             this.dataHorarioAtencion.TabIndex = 3;
             this.dataHorarioAtencion.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataHorarioAtencion_MouseClick);
             // 
@@ -248,7 +248,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(638, 535);
+            this.btnGuardar.Location = new System.Drawing.Point(638, 435);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(94, 33);
             this.btnGuardar.TabIndex = 4;
@@ -260,7 +260,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 601);
+            this.ClientSize = new System.Drawing.Size(764, 492);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dataHorarioAtencion);
             this.Controls.Add(this.groupBox2);

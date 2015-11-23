@@ -92,6 +92,10 @@ namespace presentacion
             
             frmBuscarPaciente frm = new frmBuscarPaciente();
             frm.ShowDialog();
+            objPacienteSeleccionado = frm.obtenerPaciente();
+            txtNombre.Text = objPacienteSeleccionado.Nombre;
+
+
             
         }
 

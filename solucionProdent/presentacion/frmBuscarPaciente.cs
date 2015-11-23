@@ -17,8 +17,13 @@ namespace presentacion
     public partial class frmBuscarPaciente : Form
     {
         //variables globales
-        List<Paciente> listaDePacientes = new List<Paciente>();
-        public Paciente objPacienteSeleccionado = new Paciente();
+        private List<Paciente> listaDePacientes = new List<Paciente>();
+        private Paciente objPacienteSeleccionado ;
+
+        public Paciente obtenerPaciente()
+        {
+            return objPacienteSeleccionado;
+        }
 
 
         public frmBuscarPaciente()
@@ -60,8 +65,10 @@ namespace presentacion
         {
             frm_addCitaMedica frm = new frm_addCitaMedica(objPacienteSeleccionado);
             frm.ShowDialog();
-            this.Close();
+            //this.Close();
         }
+
+
 
     }
 }

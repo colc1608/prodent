@@ -42,3 +42,4 @@ C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionPro
 C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.frmBuscarCitasDePaciente.resources
 C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.frmBuscarPaciente.resources
 C:\Users\CESARLOPEZ\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.frmBuscarTratamiento.resources
+C:\Users\lopezcastillo\Documents\Visual Studio 2013\Projects\prodent\solucionProdent\presentacion\obj\Debug\presentacion.frmReporteDePacientesPorMedico.resources

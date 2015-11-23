@@ -56,6 +56,25 @@ namespace aplicacion
         }//fin de buscar citaS de paciente
 
 
+        public List<CitaMedica> LisrarPacientesPorDoctor(string idMedico, string fecha)
+        {
+            try
+            {
+                cn.abrirConexion();
+                List<CitaMedica> listaPacientes = dao.ListarPacientesPorMedico(idMedico, fecha);
+                cn.cerrarConexion();
+                return listaPacientes;
+            }
+            catch (Exception err)
+            {
+                System.Console.WriteLine("ERROR -> aplicacion ->  servicio cita medica -> LisrarPacientesPorDoctor " + err + "\n ");
+                throw err;
+            }
+        }//fin de buscar citaS de paciente
+
+
+
+
 
 
 

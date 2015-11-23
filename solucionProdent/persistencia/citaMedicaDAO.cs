@@ -95,15 +95,15 @@ namespace persistencia
                 while (resultado.Read())
                 {
                     CitaMedica cm = new CitaMedica();
-                    Medico m = new Medico();
+                    Paciente p = new Paciente();
                     HorarioAtencion ha = new HorarioAtencion();
-                    cm.Id = resultado.GetInt32(0);
-                    m.Nombre = resultado.GetString(1);
-                    ha.Fecha = resultado.GetDateTime(2);
+                    p.Nombre = resultado.GetString(0);
+                    p.ApellidoPaterno = resultado.GetString(1);
+                    p.ApellidoMaterno = resultado.GetString(2);
                     ha.Inicio = resultado.GetString(3);
                     ha.Fin = resultado.GetString(4);
-                    ha.Medico = m;
                     cm.HorarioAtencion = ha;
+                    cm.Paciente = p;
 
                     listaDeCitasDePaciente.Add(cm);
                 }
@@ -112,7 +112,7 @@ namespace persistencia
             }
             catch (Exception err)
             {
-                System.Console.WriteLine("ERROR -> persistencia -> buscarCitasDePaciente DAO -> listar " + err + "\n ");
+                System.Console.WriteLine("ERROR -> persistencia -> ListarPacientesPorMedico DAO -> listar " + err + "\n ");
                 throw err;
             }
         }//fin de buscar

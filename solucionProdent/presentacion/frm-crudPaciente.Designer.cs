@@ -136,7 +136,7 @@
             this.groupBoxBuscarPaciente.Controls.Add(this.dataPacientes);
             this.groupBoxBuscarPaciente.Controls.Add(this.textBox1);
             this.groupBoxBuscarPaciente.Controls.Add(this.comboBox1);
-            this.groupBoxBuscarPaciente.Location = new System.Drawing.Point(51, 434);
+            this.groupBoxBuscarPaciente.Location = new System.Drawing.Point(51, 374);
             this.groupBoxBuscarPaciente.Name = "groupBoxBuscarPaciente";
             this.groupBoxBuscarPaciente.Size = new System.Drawing.Size(720, 254);
             this.groupBoxBuscarPaciente.TabIndex = 3;
@@ -173,7 +173,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Location = new System.Drawing.Point(51, 91);
+            this.groupBox1.Location = new System.Drawing.Point(51, 47);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(720, 271);
             this.groupBox1.TabIndex = 5;
@@ -352,7 +352,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(268, 42);
+            this.label11.Location = new System.Drawing.Point(267, 20);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(217, 24);
             this.label11.TabIndex = 6;
@@ -360,7 +360,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(383, 382);
+            this.btnActualizar.Location = new System.Drawing.Point(387, 336);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 9;
@@ -370,7 +370,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(528, 382);
+            this.btnEliminar.Location = new System.Drawing.Point(532, 336);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 10;
@@ -380,7 +380,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(131, 382);
+            this.btnNuevo.Location = new System.Drawing.Point(135, 336);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 11;
@@ -390,7 +390,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(255, 382);
+            this.btnGuardar.Location = new System.Drawing.Point(259, 336);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 12;
@@ -402,7 +402,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 700);
+            this.ClientSize = new System.Drawing.Size(818, 651);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnEliminar);

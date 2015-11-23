@@ -37,6 +37,12 @@ namespace presentacion
 
         }
 
+        private void pacientesPorMedicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteDePacientesPorMedico frm = new frmReporteDePacientesPorMedico();
+            frm.ShowDialog();
+        }
+
 
     }
 }
