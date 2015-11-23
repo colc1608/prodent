@@ -18,7 +18,7 @@ namespace presentacion
     {
         //variables globales
         List<Paciente> listaDePacientes = new List<Paciente>();
-        Paciente objPacienteSeleccionado = new Paciente();
+        public Paciente objPacienteSeleccionado = new Paciente();
 
 
         public frmBuscarPaciente()

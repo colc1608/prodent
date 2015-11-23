@@ -132,6 +132,7 @@
             // 
             // btnBuscarPaciente
             // 
+            this.btnBuscarPaciente.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnBuscarPaciente.Location = new System.Drawing.Point(19, 28);
             this.btnBuscarPaciente.Name = "btnBuscarPaciente";
             this.btnBuscarPaciente.Size = new System.Drawing.Size(35, 34);

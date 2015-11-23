@@ -410,7 +410,11 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxBuscarPaciente);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frm_crudPaciente";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_crudPaciente";
             this.Load += new System.EventHandler(this.frm_crudPaciente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataPacientes)).EndInit();

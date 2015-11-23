@@ -18,7 +18,7 @@ namespace presentacion
     {
         //Variables globales
         List<CitaMedica> listaDeCitasMedicas = new List<CitaMedica>();
-        CitaMedica objCitaMedicaSeleccionada = new CitaMedica();
+        public CitaMedica objCitaMedicaSeleccionada = new CitaMedica();
 
         public frmBuscarCitasDePaciente()
         {
@@ -57,9 +57,10 @@ namespace presentacion
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
+            this.Close();
             frmAddTratamiento frm = new frmAddTratamiento(objCitaMedicaSeleccionada);
             frm.ShowDialog();
-            this.Close();
+            
         }
 
         private void dataCitaMedica_MouseClick(object sender, MouseEventArgs e)

@@ -37,7 +37,7 @@ namespace presentacion
             txtDescripcion.Text = objTratamiento.Nombre+" - "+objTratamiento.Precio;
             
         }
-
+        
         public frmAddTratamiento(CitaMedica citaMedica)
         {
             InitializeComponent();
@@ -52,8 +52,19 @@ namespace presentacion
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            
             frmBuscarCitasDePaciente frm = new frmBuscarCitasDePaciente();
             frm.ShowDialog();
+            /*
+            frmBuscarCitasDePaciente f2 = new frmBuscarCitasDePaciente(); //creamos un objeto del formulario 2
+            DialogResult res = f2.ShowDialog(); //abrimos el formulario 2 como cuadro de dialogo modal
+
+            if (res == DialogResult.OK)
+            {
+                //recuperando la variable publica del formulario 2
+                this.objCitaMedica = f2.objCitaMedicaSeleccionada; //asignamos al texbox el dato de la variable
+            }
+            */
         }
 
         private void btnBuscarTratamientos_Click(object sender, EventArgs e)
