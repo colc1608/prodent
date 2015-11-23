@@ -14,9 +14,9 @@ namespace persistencia
     {
         conexion cn;
 
-        public citaMedicaDAO(conexion cn)
+        public citaMedicaDAO(conexion con)
         {
-            this.cn = cn;
+            this.cn = con;
         }
 
 
@@ -27,9 +27,6 @@ namespace persistencia
             try
             {
                 SqlCommand comando = cn.obtenerComandoSQL(sentenciaSQL);
-                System.Console.WriteLine("el id del paciente que llego es: "+cm.Paciente.Id);
-                System.Console.WriteLine("el id de HORARIO que llego es: " + cm.HorarioAtencion.Id);
-
                 comando.Parameters.AddWithValue("@idHorarioAtencion", cm.HorarioAtencion.Id);
                 comando.Parameters.AddWithValue("@idPaciente", cm.Paciente.Id);
                 registros_afectados = comando.ExecuteNonQuery();
@@ -40,10 +37,46 @@ namespace persistencia
                 System.Console.WriteLine("ERROR -> persistencia -> cita Medica DAO -> ingresar " + err + "\n");
                 throw err;
             }
-        }//fin de ingresar paciente
+        }//fin de ingresar cita medica
 
 
-
+        public List<CitaMedica> buscarCitasDePaciente(Paciente paciente)
+        {
+            List<CitaMedica> listaDeCitasDePaciente = new List<CitaMedica>();
+            try
+            {
+                String sentenciaSQL =   " select cm.id, m.nombre, ha.fecha, ha.inicio, ha.fin  "
+                                        +" from horarioAtencion ha, citaMedica cm, paciente p, medico m "
+                                        +" where "
+                                        +" ha.idMedico = m.id and "
+                                        +" cm.idPaciente = p.id and "
+                                        +" cm.idHorarioAtencion = ha.id and "
+                                        + " p.dni = '" + paciente.Dni + "' ; "; 
+                SqlDataReader resultado = cn.ejecutarConsulta(sentenciaSQL);
+                while (resultado.Read())
+                {
+                    CitaMedica cm = new CitaMedica();
+                    Medico m = new Medico();
+                    HorarioAtencion ha = new HorarioAtencion();
+                    cm.Id = resultado.GetInt32(0);
+                    m.Nombre = resultado.GetString(1);
+                    ha.Fecha = resultado.GetDateTime(2);
+                    ha.Inicio = resultado.GetString(3);
+                    ha.Fin = resultado.GetString(4);
+                    ha.Medico = m;
+                    cm.HorarioAtencion = ha;
+                    
+                    listaDeCitasDePaciente.Add(cm);
+                }
+                resultado.Close();
+                return listaDeCitasDePaciente;
+            }
+            catch (Exception err)
+            {
+                System.Console.WriteLine("ERROR -> persistencia -> buscarCitasDePaciente DAO -> listar " + err + "\n ");
+                throw err;
+            }
+        }//fin de buscar
 
 
 
