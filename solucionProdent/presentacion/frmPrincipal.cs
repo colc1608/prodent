@@ -19,28 +19,28 @@ namespace presentacion
 
         private void menuItemPaciente_Click(object sender, EventArgs e)
         {
-            frm_crudPaciente frmCrudPaciente = new frm_crudPaciente();
-            frmCrudPaciente.ShowDialog();
+            frm_crudPaciente frm = new frm_crudPaciente();
+            frm.Show();
         }
 
         private void frmaddCitaMedica_Click(object sender, EventArgs e)
         {
-            frm_addCitaMedica frmCitaMedica = new frm_addCitaMedica();
-            frmCitaMedica.ShowDialog();
+            frm_addCitaMedica frm = new frm_addCitaMedica();
+            frm.Show();
         }
 
         private void menuAsignarTratamiento(object sender, EventArgs e)
         {
 
             frmAddTratamiento frm = new frmAddTratamiento();
-            frm.ShowDialog();
+            frm.Show();
 
         }
 
         private void pacientesPorMedicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteDePacientesPorMedico frm = new frmReporteDePacientesPorMedico();
-            frm.ShowDialog();
+            frm.Show();
         }
 
 

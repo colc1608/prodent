@@ -27,16 +27,16 @@ namespace presentacion
             InitializeComponent();
         }
 
-
+        /*
         public frm_addCitaMedica(Paciente objPacienteEnviado)
         {
             InitializeComponent();
-            cargarEspecialidades();
+            
             objPacienteSeleccionado = objPacienteEnviado;
             txtNombre.Text = objPacienteSeleccionado.Nombre.ToString();
             txtApellido.Text = objPacienteSeleccionado.ApellidoPaterno.ToString() +" "+ objPacienteSeleccionado.ApellidoMaterno.ToString();
             txtDNI.Text = objPacienteSeleccionado.Dni.ToString();
-        }
+        }*/
 
         //---------------fin de constructores
         
@@ -46,7 +46,7 @@ namespace presentacion
             try
             {
                 dataHorarioAtencion.Rows.Clear();
-                string fecha = tpFecha.Value.ToString("dd/MM/yyyy");
+                string fecha = txtFecha.Value.ToString("dd/MM/yyyy");
                 Especialidad especialidad = new Especialidad();
                 int posicionCombo = cboEspecialidad.SelectedIndex;
                 especialidad = listaDeEspecialidades[posicionCombo];
@@ -56,12 +56,7 @@ namespace presentacion
                 ServicioHorario serviceHA = new ServicioHorario();
                 
                 listaDeHorarios = serviceHA.listarHorariosDisponibles(fecha, especialidad.Id.ToString() );
-                dataHorarioAtencion.Rows.Clear();
-                foreach (HorarioAtencion ha in listaDeHorarios)
-                {
-                    Object[] fila = { ha.Medico.Nombre, ha.Inicio, ha.Fin, ha.Consultorio };
-                    dataHorarioAtencion.Rows.Add(fila);
-                }
+                CargasListaDeHorarios();
             }
             catch (Exception err)
             {
@@ -71,6 +66,16 @@ namespace presentacion
                 
             }
         }//fin de buscar HORARIO DE ATENCION
+
+        private void CargasListaDeHorarios()
+        {
+            dataHorarioAtencion.Rows.Clear();
+            foreach (HorarioAtencion ha in listaDeHorarios)
+            {
+                Object[] fila = { ha.Medico.Nombre, ha.Inicio, ha.Fin, ha.Consultorio };
+                dataHorarioAtencion.Rows.Add(fila);
+            }
+        }
 
 
         private void cargarEspecialidades()
@@ -94,9 +99,10 @@ namespace presentacion
             frm.ShowDialog();
             objPacienteSeleccionado = frm.obtenerPaciente();
             txtNombre.Text = objPacienteSeleccionado.Nombre;
+            txtApellido.Text = objPacienteSeleccionado.ApellidoPaterno + " " + objPacienteSeleccionado.ApellidoMaterno;
+            txtDNI.Text = objPacienteSeleccionado.Dni;
+            cargarEspecialidades();
 
-
-            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -105,6 +111,7 @@ namespace presentacion
             CitaMedica cita = new CitaMedica();
             cita.Paciente = objPacienteSeleccionado;
             cita.HorarioAtencion = objHorarioSeleccionado;
+            cita.HorarioAtencion.Fecha = txtFecha.Value;
             try
             {
                 ServicioCitaMedica servicio = new ServicioCitaMedica();
@@ -112,8 +119,8 @@ namespace presentacion
                 if (registros_afectados >= 1)
                     MessageBox.Show("Su cita medica fue reservada con exito.", "PRODENT: Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Su cita medica NO fue reservada, verifique.", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+                    MessageBox.Show("No puede tener mas de dos citas diarias, verifique.", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CargasListaDeHorarios();
             }
             catch (Exception err)
             {

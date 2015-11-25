@@ -34,7 +34,7 @@ namespace persistencia
             }
             catch (Exception err)
             {
-                System.Console.WriteLine("ERROR -> persistencia -> cita Medica DAO -> ingresar " + err + "\n");
+                System.Console.WriteLine("ERROR -> persistencia -> citaMedicaDAO -> ingresar " + err + "\n");
                 throw err;
             }
         }//fin de ingresar cita medica
@@ -73,7 +73,7 @@ namespace persistencia
             }
             catch (Exception err)
             {
-                System.Console.WriteLine("ERROR -> persistencia -> buscarCitasDePaciente DAO -> listar " + err + "\n ");
+                System.Console.WriteLine("ERROR -> persistencia -> citaMedicaDAO -> buscarCitasDePaciente " + err + "\n ");
                 throw err;
             }
         }//fin de buscar
@@ -112,10 +112,16 @@ namespace persistencia
             }
             catch (Exception err)
             {
-                System.Console.WriteLine("ERROR -> persistencia -> ListarPacientesPorMedico DAO -> listar " + err + "\n ");
+                System.Console.WriteLine("ERROR -> persistencia -> citaMedicaDAO -> ListarPacientesPorMedico " + err + "\n ");
                 throw err;
             }
         }//fin de buscar
+
+
+
+        
+
+
 
     }//fin de clase
 }

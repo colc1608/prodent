@@ -63,9 +63,9 @@ namespace presentacion
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            frm_addCitaMedica frm = new frm_addCitaMedica(objPacienteSeleccionado);
-            frm.ShowDialog();
-            //this.Close();
+            //frm_addCitaMedica frm = new frm_addCitaMedica(objPacienteSeleccionado);
+            //frm.ShowDialog();
+            this.Close();
         }
 
 

@@ -13,24 +13,37 @@ namespace aplicacion
     public class ServicioCitaMedica
     {
         private conexion cn;
+        
         private citaMedicaDAO dao;
-
+        private CitaMedica cm = new CitaMedica();
 
         public ServicioCitaMedica() 
         {
             cn = new conexion();
+            
             dao = new citaMedicaDAO(cn);
         }
 
 
         public int ingresarCitaMedica(CitaMedica citaMedica)
         {
+            int r = 0;
             try
             {
-                cn.abrirConexion();
-                int r = dao.ingresar(citaMedica);
-                cn.cerrarConexion();
-                return r;
+                
+                if (cm.MasDeDosCitas(citaMedica)){
+                    return r;
+                } 
+                else
+                {
+                    cn.abrirConexion();
+                    r = dao.ingresar(citaMedica);
+                    cn.cerrarConexion();
+                    return r;
+                }
+                
+                    
+                
             }
             catch (Exception e)
             {

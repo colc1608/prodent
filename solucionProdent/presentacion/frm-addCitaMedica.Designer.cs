@@ -42,7 +42,7 @@
             this.cboEspecialidad = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.tpFecha = new System.Windows.Forms.DateTimePicker();
+            this.txtFecha = new System.Windows.Forms.DateTimePicker();
             this.dataHorarioAtencion = new System.Windows.Forms.DataGridView();
             this.Medico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -147,7 +147,7 @@
             this.groupBox2.Controls.Add(this.cboEspecialidad);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.tpFecha);
+            this.groupBox2.Controls.Add(this.txtFecha);
             this.groupBox2.Location = new System.Drawing.Point(35, 149);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(697, 78);
@@ -191,13 +191,13 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Fecha";
             // 
-            // tpFecha
+            // txtFecha
             // 
-            this.tpFecha.Location = new System.Drawing.Point(81, 28);
-            this.tpFecha.Name = "tpFecha";
-            this.tpFecha.Size = new System.Drawing.Size(200, 20);
-            this.tpFecha.TabIndex = 0;
-            this.tpFecha.Value = new System.DateTime(2015, 11, 20, 0, 0, 0, 0);
+            this.txtFecha.Location = new System.Drawing.Point(81, 28);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(200, 20);
+            this.txtFecha.TabIndex = 0;
+            this.txtFecha.Value = new System.DateTime(2015, 11, 20, 0, 0, 0, 0);
             // 
             // dataHorarioAtencion
             // 
@@ -294,7 +294,7 @@
         private System.Windows.Forms.ComboBox cboEspecialidad;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker tpFecha;
+        private System.Windows.Forms.DateTimePicker txtFecha;
         private System.Windows.Forms.DataGridView dataHorarioAtencion;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Medico;

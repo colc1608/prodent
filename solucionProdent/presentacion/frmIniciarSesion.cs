@@ -19,10 +19,11 @@ namespace presentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            frm_principal frm = new frm_principal();
+            frm.ShowDialog();
+            //Close();
             
-            frm_principal frmPrincipal = new frm_principal();
-            frmPrincipal.ShowDialog();
-            Close();
         }
     }
 }

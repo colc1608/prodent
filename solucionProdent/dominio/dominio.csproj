@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Asistente.cs" />
     <Compile Include="CitaMedica.cs" />
+    <Compile Include="ConexionDominio.cs" />
     <Compile Include="DetalleCita.cs" />
     <Compile Include="Especialidad.cs" />
     <Compile Include="HorarioAtencion.cs" />
