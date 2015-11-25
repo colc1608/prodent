@@ -58,8 +58,8 @@ namespace presentacion
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmAddTratamiento frm = new frmAddTratamiento(objCitaMedicaSeleccionada);
-            frm.ShowDialog();
+            //frmAddTratamiento frm = new frmAddTratamiento(objCitaMedicaSeleccionada);
+            //frm.ShowDialog();
             
         }
 

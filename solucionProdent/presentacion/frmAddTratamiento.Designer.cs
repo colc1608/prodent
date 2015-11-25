@@ -79,6 +79,7 @@
             // 
             // txtFechaCitaMedica
             // 
+            this.txtFechaCitaMedica.Enabled = false;
             this.txtFechaCitaMedica.Location = new System.Drawing.Point(353, 30);
             this.txtFechaCitaMedica.Name = "txtFechaCitaMedica";
             this.txtFechaCitaMedica.Size = new System.Drawing.Size(198, 20);
@@ -95,6 +96,7 @@
             // 
             // txtNombrePaciente
             // 
+            this.txtNombrePaciente.Enabled = false;
             this.txtNombrePaciente.Location = new System.Drawing.Point(143, 30);
             this.txtNombrePaciente.Name = "txtNombrePaciente";
             this.txtNombrePaciente.Size = new System.Drawing.Size(147, 20);
@@ -141,6 +143,7 @@
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.Enabled = false;
             this.txtDescripcion.Location = new System.Drawing.Point(161, 30);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(147, 20);
@@ -179,7 +182,6 @@
             this.dataCitaTratamientos.ReadOnly = true;
             this.dataCitaTratamientos.Size = new System.Drawing.Size(575, 128);
             this.dataCitaTratamientos.TabIndex = 6;
-            this.dataCitaTratamientos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataCitaConTratamiento_Click);
             // 
             // Nombre
             // 
@@ -238,6 +240,7 @@
             this.button3.TabIndex = 10;
             this.button3.Text = "Registrar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnGuardar_CLICK);
             // 
             // frmAddTratamiento
             // 

@@ -19,7 +19,7 @@ namespace presentacion
         //variable global
         Tratamiento objTratamiento = new Tratamiento();
         CitaMedica objCitaMedica = new CitaMedica();
-        DetalleCita objDetalleCita = new DetalleCita();
+        
         List<DetalleCita> listaDeDetalleCita = new List<DetalleCita>();
 
 
@@ -28,13 +28,15 @@ namespace presentacion
         {
             InitializeComponent();
         }
-        
+
+
+        /*
 
         public frmAddTratamiento(Tratamiento tratamiento)
         {
             InitializeComponent();
             objTratamiento = tratamiento;
-            txtDescripcion.Text = objTratamiento.Nombre+" - "+objTratamiento.Precio;
+            
             
         }
         
@@ -46,6 +48,8 @@ namespace presentacion
             txtFechaCitaMedica.Text= Convert.ToString(objCitaMedica.HorarioAtencion.Fecha.ToString());
 
         }
+        */
+
 
 
         //---------------------------------comienzan metodos de botones o void
@@ -55,6 +59,10 @@ namespace presentacion
             
             frmBuscarCitasDePaciente frm = new frmBuscarCitasDePaciente();
             frm.ShowDialog();
+            objCitaMedica = frm.objCitaMedicaSeleccionada;
+            txtNombrePaciente.Text = objCitaMedica.HorarioAtencion.Medico.Nombre;
+            txtFechaCitaMedica.Text = objCitaMedica.HorarioAtencion.Fecha.ToString();
+
             /*
             frmBuscarCitasDePaciente f2 = new frmBuscarCitasDePaciente(); //creamos un objeto del formulario 2
             DialogResult res = f2.ShowDialog(); //abrimos el formulario 2 como cuadro de dialogo modal
@@ -71,14 +79,16 @@ namespace presentacion
         {
             frmBuscarTratamiento frm = new frmBuscarTratamiento();
             frm.ShowDialog();
+            this.objTratamiento = frm.objTratamientoSeleccionado;
+            txtDescripcion.Text = objTratamiento.Id + " "+ objTratamiento.Nombre + " - " + objTratamiento.Precio;
         }
 
         private void btnAgregarTratamiento(object sender, EventArgs e)
         {
+            DetalleCita objDetalleCita = new DetalleCita();
             objDetalleCita.Cantidad = int.Parse(txtCantidad.Text.ToString());
-            
             objDetalleCita.CitaMedica = objCitaMedica;
-            objDetalleCita.Tratamiento = objTratamiento;
+            objDetalleCita.Tratamiento = this.objTratamiento;
             
             Object[] fila = { objDetalleCita.Tratamiento.Nombre, objDetalleCita.Tratamiento.Precio, objDetalleCita.Cantidad  };
             dataCitaTratamientos.Rows.Add(fila);
@@ -90,9 +100,27 @@ namespace presentacion
         }
 
 
-        private void dataCitaConTratamiento_Click(object sender, MouseEventArgs e)
-        {
+        
 
+        private void btnGuardar_CLICK(object sender, EventArgs e)
+        {
+            int registros_afectados;
+            ServicioDetalleCita servicio = new ServicioDetalleCita();
+            try
+            {
+
+                registros_afectados = servicio.ingresarDetalleCita(this.listaDeDetalleCita);
+                if (registros_afectados >= 1)
+                    MessageBox.Show("Detalle ingresado correctamente", "PRODENT: Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Error al ingresar detalle.", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(this, "Ocurrio un problema al guardar el paciente. \n\nIntente de nuevo o verifique con el Administrador.", "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Console.WriteLine("ERROR -> CAPA PRESENTACION -> FRM-CRUDPACIENTE -> btn GUARDAR  " + err);
+            }
         }
     }
 }

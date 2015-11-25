@@ -20,7 +20,7 @@ namespace persistencia
             this.cn = con;
         }
 
-        public int ingresar(List<DetalleCita> detalleCita)
+        public int ingresarDetalle(List<DetalleCita> detalleCita)
         {
             int registros_afectados = 0;
             try

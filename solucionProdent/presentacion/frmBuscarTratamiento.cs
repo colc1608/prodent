@@ -18,7 +18,7 @@ namespace presentacion
     {
         //variables globales
         List<Tratamiento> listaDeTratamientos = new List<Tratamiento>();
-        Tratamiento objTratamientoSeleccionado = new Tratamiento();
+        public Tratamiento objTratamientoSeleccionado = new Tratamiento();
 
 
         public frmBuscarTratamiento()
@@ -51,8 +51,6 @@ namespace presentacion
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            frmAddTratamiento frm = new frmAddTratamiento(objTratamientoSeleccionado);
-            frm.ShowDialog();
             this.Close();
         }
 

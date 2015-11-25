@@ -42,40 +42,37 @@ namespace presentacion
         
         private void btnBuscarHorario_Click(object sender, EventArgs e)
         {
-            
+            Especialidad especialidad = new Especialidad();
+            ServicioHorario serviceHA = new ServicioHorario();
             try
             {
-                dataHorarioAtencion.Rows.Clear();
                 string fecha = txtFecha.Value.ToString("dd/MM/yyyy");
-                Especialidad especialidad = new Especialidad();
                 int posicionCombo = cboEspecialidad.SelectedIndex;
                 especialidad = listaDeEspecialidades[posicionCombo];
-
-                //txtNombre.Text = especialidad.Id.ToString();
-
-                ServicioHorario serviceHA = new ServicioHorario();
-                
                 listaDeHorarios = serviceHA.listarHorariosDisponibles(fecha, especialidad.Id.ToString() );
-                CargasListaDeHorarios();
+                dataHorarioAtencion.Rows.Clear();
+                if(listaDeHorarios.Count() == 0) {
+                    MessageBox.Show(this, "No hay fechas disponibles", "PRODENT: Adveterncia",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else{
+                    foreach (HorarioAtencion ha in listaDeHorarios)
+                    {
+                        Object[] fila = { ha.Medico.Nombre, ha.Inicio, ha.Fin, ha.Consultorio };
+                        dataHorarioAtencion.Rows.Add(fila);
+                    }
+                }
+                
             }
             catch (Exception err)
             {
-                MessageBox.Show(this, "Ocurrio un problema al LISTAR los horarios disponibles. \n\nIntente de nuevo o verifique con el Administrador.",
-                    "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MostrarMensajeDeError();
                 System.Console.WriteLine("ERROR -> presentacion -> FRM-addCitaMedica -> btn Buscar Horario Disponible " + err + "\n");
-                
             }
         }//fin de buscar HORARIO DE ATENCION
 
-        private void CargasListaDeHorarios()
-        {
-            dataHorarioAtencion.Rows.Clear();
-            foreach (HorarioAtencion ha in listaDeHorarios)
-            {
-                Object[] fila = { ha.Medico.Nombre, ha.Inicio, ha.Fin, ha.Consultorio };
-                dataHorarioAtencion.Rows.Add(fila);
-            }
-        }
+        
+
+        
 
 
         private void cargarEspecialidades()
@@ -88,6 +85,7 @@ namespace presentacion
                 }
                 //cboEspecialidad = model;
             } catch (Exception err) {
+                MostrarMensajeDeError();
                 System.Console.WriteLine("ERROR -> presentacion -> FRM-addCitaMedica -> CARGAR especialidades " + err + "\n");
             }
         }
@@ -109,24 +107,34 @@ namespace presentacion
         {
             int registros_afectados;
             CitaMedica cita = new CitaMedica();
-            cita.Paciente = objPacienteSeleccionado;
-            cita.HorarioAtencion = objHorarioSeleccionado;
-            cita.HorarioAtencion.Fecha = txtFecha.Value;
+            ServicioCitaMedica servicio = new ServicioCitaMedica();
             try
             {
-                ServicioCitaMedica servicio = new ServicioCitaMedica();
+                cita.Paciente = objPacienteSeleccionado;
+                cita.HorarioAtencion = objHorarioSeleccionado;
+                cita.HorarioAtencion.Fecha = txtFecha.Value;
+                
                 registros_afectados = servicio.ingresarCitaMedica(cita);
                 if (registros_afectados >= 1)
                     MessageBox.Show("Su cita medica fue reservada con exito.", "PRODENT: Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("No puede tener mas de dos citas diarias, verifique.", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                CargasListaDeHorarios();
+                
+                dataHorarioAtencion.Rows.Clear();
+                LimpiarCajas();
             }
             catch (Exception err)
             {
-                MessageBox.Show(this, "Ocurrio un problema al guardar el paciente. \n\nIntente de nuevo o verifique con el Administrador.", "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MostrarMensajeDeError();
                 System.Console.WriteLine("ERROR -> presentacion -> FRM-addCitaMedica -> btn GUARDAR  " + err + "\n");
             }
+        }
+
+        private void LimpiarCajas()
+        {
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtDNI.Text = "";
         }
 
         private void dataHorarioAtencion_MouseClick(object sender, MouseEventArgs e)
@@ -135,7 +143,11 @@ namespace presentacion
         }
 
 
-
+        private void MostrarMensajeDeError()
+        {
+            MessageBox.Show(this, "Ocurrio un problema interno :( . \n\nIntente de nuevo o verifique con el Administrador.", "PRODENT: Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
 
 

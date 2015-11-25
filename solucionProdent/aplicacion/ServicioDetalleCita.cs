@@ -10,7 +10,7 @@ using persistencia;
 
 namespace aplicacion
 {
-    class ServicioDetalleCita
+    public class ServicioDetalleCita
     {
         private conexion cn;
         private DetalleCitaDAO dao;
@@ -23,12 +23,12 @@ namespace aplicacion
         }
 
 
-        public int ingresarPaciente(List<DetalleCita> detalleCita)
+        public int ingresarDetalleCita(List<DetalleCita> detalleCita)
         {
             try
             {
                 cn.abrirConexion();
-                int r = dao.ingresar(detalleCita);
+                int r = dao.ingresarDetalle(detalleCita);
                 cn.cerrarConexion();
                 return r;
             }
