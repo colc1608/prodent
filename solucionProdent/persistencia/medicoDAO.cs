@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using dominio;
 using System.Data.SqlClient;
 
+
 namespace persistencia
 {
     public class medicoDAO
@@ -41,10 +42,48 @@ namespace persistencia
             }
             catch (Exception err)
             {
-                System.Console.WriteLine("ERROR -> persistencia -> medicoDAO -> listarMedicos " + err + "\n");
+                System.Console.WriteLine("ERROR -> persistencia -> medicoDAO -> listarMedicos " + err + "\n\n");
                 throw err;
             }
         }//fin de listar
+
+
+        public Medico datosMedico(Usuario usuario)
+        {
+            Medico objMedico = new Medico();
+            try
+            {
+                String sentenciaSQL =" select m.id as idMedico, u.id as idUsuario, m.nombre, m.apellidoPaterno "
+                                    +" from medico m, usuario u where u.id = m.idUsuario and u.id = '"+usuario.Id+"'; ";
+                SqlDataReader resultado = cn.ejecutarConsulta(sentenciaSQL);
+                while (resultado.Read())
+                {
+                    Usuario objUsuario = new Usuario();
+
+                    objMedico.Id = resultado.GetInt32(0);
+                    objUsuario.Id = resultado.GetInt32(1);
+                    objMedico.Nombre = resultado.GetString(2);
+                    objMedico.ApellidoPaterno = resultado.GetString(3);
+
+                    objMedico.Usuario = objUsuario;
+
+                }
+                resultado.Close();
+                return objMedico;
+            }
+            catch (Exception err)
+            {
+                System.Console.WriteLine("ERROR -> persistencia -> medicoDAO -> datosMedico " + err + "\n\n");
+                throw err;
+            }
+        }//fin de validarLogin
+
+
+
+
+
+
+
 
     }
 }

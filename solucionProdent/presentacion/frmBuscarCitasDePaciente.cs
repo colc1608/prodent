@@ -27,19 +27,18 @@ namespace presentacion
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            System.Console.WriteLine("hola boton buscar");
+            Paciente paciente = new Paciente();
+            ServicioCitaMedica servicio = new ServicioCitaMedica();
             try
             {
-                Paciente paciente = new Paciente();
+                
                 paciente.Dni = txtDNI.Text.ToString();
-
-                ServicioCitaMedica servicio = new ServicioCitaMedica();
                 listaDeCitasMedicas = servicio.buscarCitasMedicasDePaciente(paciente);
+                dataCitaMedica.Rows.Clear();
                 if(listaDeCitasMedicas.Count() == 0){
-                    System.Console.WriteLine("la lista esta vacia");
+                    MessageBox.Show(this, "Lista vacia", "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                dataCitaMedica.Rows.Clear();
                 foreach (CitaMedica cm in listaDeCitasMedicas)
                 {
                     Object[] fila = { cm.HorarioAtencion.Medico.Nombre, cm.HorarioAtencion.Fecha, cm.HorarioAtencion.Inicio, cm.HorarioAtencion.Fecha };

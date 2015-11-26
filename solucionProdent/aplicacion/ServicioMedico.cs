@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using dominio;
 using persistencia;
 
+
 namespace aplicacion
 {
     public class ServicioMedico
@@ -33,10 +34,34 @@ namespace aplicacion
             }
             catch (Exception err)
             {
-                System.Console.WriteLine("ERROR -> aplicacion -> ServicioMedico -> listarMedicos " + err + "\n");
+                System.Console.WriteLine("ERROR -> aplicacion -> ServicioMedico -> listarMedicos " + err + "\n\n");
                 throw err;
             }
         }
+
+        public Medico crearInstancia(Usuario usuario)
+        {
+            try
+            {
+                cn.abrirConexion();
+                Medico objMedico = dao.datosMedico(usuario);
+                cn.cerrarConexion();
+                return objMedico;
+            }
+            catch (Exception err)
+            {
+                System.Console.WriteLine("ERROR -> aplicacion -> ServicioMedico -> crearInstancia " + err + "\n\n");
+                throw err;
+            }
+        }
+
+
+
+
+
+
+
+
 
     }//fin de clase
 }

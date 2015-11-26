@@ -9,6 +9,15 @@ namespace dominio
     public class Usuario
     {
         private int id;
+        private string user;
+        private string clave;
+        private string tipoUsuario;
+        private string intentos;
+        private string estado;
+
+
+
+
 
         public int Id
         {
@@ -16,7 +25,7 @@ namespace dominio
             set { id = value; }
         }
 
-        private string user;
+        
 
         public string User
         {
@@ -25,28 +34,28 @@ namespace dominio
         }
 
 
-        private string clave;
+        
 
         public string Clave
         {
             get { return clave; }
             set { clave = value; }
         }
-        private string tipoUsuario;
+        
 
         public string TipoUsuario
         {
             get { return tipoUsuario; }
             set { tipoUsuario = value; }
         }
-        private string intentos;
+        
 
         public string Intentos
         {
             get { return intentos; }
             set { intentos = value; }
         }
-        private string estado;
+        
 
         public string Estado
         {

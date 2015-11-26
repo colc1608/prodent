@@ -19,14 +19,17 @@ namespace presentacion
         //variable global
         Tratamiento objTratamiento = new Tratamiento();
         CitaMedica objCitaMedica = new CitaMedica();
-        
         List<DetalleCita> listaDeDetalleCita = new List<DetalleCita>();
+        Medico medico;
+
+
 
 
 
         public frmAddTratamiento()
         {
             InitializeComponent();
+            medico = frm_principal.retornarMedico();
         }
 
 
@@ -52,7 +55,7 @@ namespace presentacion
 
 
 
-        //---------------------------------comienzan metodos de botones o void
+        //---------------------------------comienzan metodos
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -60,8 +63,15 @@ namespace presentacion
             frmBuscarCitasDePaciente frm = new frmBuscarCitasDePaciente();
             frm.ShowDialog();
             objCitaMedica = frm.objCitaMedicaSeleccionada;
-            txtNombrePaciente.Text = objCitaMedica.HorarioAtencion.Medico.Nombre;
-            txtFechaCitaMedica.Text = objCitaMedica.HorarioAtencion.Fecha.ToString();
+            if (objCitaMedica.Id == 0 )
+                txtNombrePaciente.Text = "no ha seleccionado una cita";
+            else
+            {
+                txtNombrePaciente.Text = objCitaMedica.HorarioAtencion.Medico.Nombre;
+                txtFechaCitaMedica.Text = objCitaMedica.HorarioAtencion.Fecha.ToString();
+                btnBuscarTratamientos.Enabled = true;
+            }
+            
 
             /*
             frmBuscarCitasDePaciente f2 = new frmBuscarCitasDePaciente(); //creamos un objeto del formulario 2
@@ -80,22 +90,45 @@ namespace presentacion
             frmBuscarTratamiento frm = new frmBuscarTratamiento();
             frm.ShowDialog();
             this.objTratamiento = frm.objTratamientoSeleccionado;
-            txtDescripcion.Text = objTratamiento.Id + " "+ objTratamiento.Nombre + " - " + objTratamiento.Precio;
+
+            if (objTratamiento.Id == 0)
+                txtDescripcion.Text = "debe seleccionar un tratamiento";
+            else
+            {
+                btnAgregar.Enabled = true;
+                txtCantidad.Enabled = true;
+                txtDescripcion.Text = objTratamiento.Id + " " + objTratamiento.Nombre + " - " + objTratamiento.Precio;
+
+            }
+                
         }
 
         private void btnAgregarTratamiento(object sender, EventArgs e)
         {
             DetalleCita objDetalleCita = new DetalleCita();
+            Decimal total = 0;
+
             objDetalleCita.Cantidad = int.Parse(txtCantidad.Text.ToString());
             objDetalleCita.CitaMedica = objCitaMedica;
             objDetalleCita.Tratamiento = this.objTratamiento;
-            
-            Object[] fila = { objDetalleCita.Tratamiento.Nombre, objDetalleCita.Tratamiento.Precio, objDetalleCita.Cantidad  };
+            objDetalleCita.SubTotal = objDetalleCita.Cantidad * objTratamiento.Precio;
+
+
+
+            Object[] fila = { objDetalleCita.Tratamiento.Nombre, objDetalleCita.Tratamiento.Precio, objDetalleCita.Cantidad, objDetalleCita.SubTotal };
             dataCitaTratamientos.Rows.Add(fila);
 
             listaDeDetalleCita.Add(objDetalleCita);
+
+
+            for (int i = 0; i < listaDeDetalleCita.Count; i++)
+                total += listaDeDetalleCita[i].SubTotal;
             
-            //opcionar listar
+            
+            txtTotal.Text = total.ToString();
+            
+            btnRegistrar.Enabled = true;
+
             
         }
 

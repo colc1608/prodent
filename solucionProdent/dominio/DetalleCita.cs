@@ -12,6 +12,18 @@ namespace dominio
         private CitaMedica citaMedica;
         private Tratamiento tratamiento;
         private int cantidad;
+        private decimal subTotal;
+        private decimal total;
+
+        
+        
+
+
+
+
+
+
+
 
         public int Id
         {
@@ -39,6 +51,22 @@ namespace dominio
             get { return cantidad; }
             set { cantidad = value; }
         }
+        public decimal SubTotal
+        {
+            get { return subTotal; }
+            set { subTotal = value; }
+        }
+
+        public decimal Total
+        {
+            get { return total; }
+            set { total = value; }
+        }
+
+
+
+
+
 
     }
 }
