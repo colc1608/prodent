@@ -57,11 +57,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(297, 14);
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(269, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(161, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label1.Text = "Reservar una cita";
             // 
             // groupBox1
             // 
@@ -72,7 +73,7 @@
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnBuscarPaciente);
-            this.groupBox1.Location = new System.Drawing.Point(35, 49);
+            this.groupBox1.Location = new System.Drawing.Point(35, 65);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(697, 78);
             this.groupBox1.TabIndex = 1;
@@ -153,10 +154,11 @@
             this.groupBox2.Size = new System.Drawing.Size(697, 78);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Fecha";
             // 
             // btnBuscarHorario
             // 
+            this.btnBuscarHorario.Enabled = false;
             this.btnBuscarHorario.Location = new System.Drawing.Point(592, 26);
             this.btnBuscarHorario.Name = "btnBuscarHorario";
             this.btnBuscarHorario.Size = new System.Drawing.Size(75, 23);
@@ -197,7 +199,7 @@
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(200, 20);
             this.txtFecha.TabIndex = 0;
-            this.txtFecha.Value = new System.DateTime(2015, 11, 20, 0, 0, 0, 0);
+            this.txtFecha.Value = new System.DateTime(2015, 11, 25, 0, 0, 0, 0);
             // 
             // dataHorarioAtencion
             // 
@@ -210,7 +212,7 @@
             this.Inicio,
             this.Fin,
             this.Consultorio});
-            this.dataHorarioAtencion.Location = new System.Drawing.Point(35, 250);
+            this.dataHorarioAtencion.Location = new System.Drawing.Point(35, 254);
             this.dataHorarioAtencion.Name = "dataHorarioAtencion";
             this.dataHorarioAtencion.ReadOnly = true;
             this.dataHorarioAtencion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -248,7 +250,8 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(638, 435);
+            this.btnGuardar.Enabled = false;
+            this.btnGuardar.Location = new System.Drawing.Point(638, 441);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(94, 33);
             this.btnGuardar.TabIndex = 4;
@@ -260,7 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 492);
+            this.ClientSize = new System.Drawing.Size(774, 525);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dataHorarioAtencion);
             this.Controls.Add(this.groupBox2);

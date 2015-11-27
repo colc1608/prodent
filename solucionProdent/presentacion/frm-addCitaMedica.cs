@@ -51,7 +51,7 @@ namespace presentacion
                 especialidad = listaDeEspecialidades[posicionCombo];
                 listaDeHorarios = serviceHA.listarHorariosDisponibles(fecha, especialidad.Id.ToString() );
                 dataHorarioAtencion.Rows.Clear();
-                if(listaDeHorarios.Count() == 0) {
+                if(listaDeHorarios == null) {
                     MessageBox.Show(this, "No hay fechas disponibles", "PRODENT: Adveterncia",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else{
@@ -96,10 +96,17 @@ namespace presentacion
             frmBuscarPaciente frm = new frmBuscarPaciente();
             frm.ShowDialog();
             objPacienteSeleccionado = frm.obtenerPaciente();
-            txtNombre.Text = objPacienteSeleccionado.Nombre;
-            txtApellido.Text = objPacienteSeleccionado.ApellidoPaterno + " " + objPacienteSeleccionado.ApellidoMaterno;
-            txtDNI.Text = objPacienteSeleccionado.Dni;
-            cargarEspecialidades();
+            if (objPacienteSeleccionado == null)
+                txtNombre.Text = "debe seleccionar un paciente por favor";
+            else
+            {
+                txtNombre.Text = objPacienteSeleccionado.Nombre;
+                txtApellido.Text = objPacienteSeleccionado.ApellidoPaterno + " " + objPacienteSeleccionado.ApellidoMaterno;
+                txtDNI.Text = objPacienteSeleccionado.Dni;
+                cargarEspecialidades();
+                btnBuscarHorario.Enabled = true;
+            }
+            
 
         }
 
@@ -122,6 +129,8 @@ namespace presentacion
                 
                 dataHorarioAtencion.Rows.Clear();
                 LimpiarCajas();
+                btnGuardar.Enabled = false;
+                btnBuscarHorario.Enabled = false;
             }
             catch (Exception err)
             {
@@ -140,6 +149,8 @@ namespace presentacion
         private void dataHorarioAtencion_MouseClick(object sender, MouseEventArgs e)
         {
             objHorarioSeleccionado = listaDeHorarios[int.Parse(dataHorarioAtencion.CurrentRow.Index.ToString())];
+            btnGuardar.Enabled = true;
+            
         }
 
 

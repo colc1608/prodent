@@ -67,8 +67,8 @@ namespace presentacion
                 txtNombrePaciente.Text = "no ha seleccionado una cita";
             else
             {
-                txtNombrePaciente.Text = objCitaMedica.HorarioAtencion.Medico.Nombre;
-                txtFechaCitaMedica.Text = objCitaMedica.HorarioAtencion.Fecha.ToString();
+                txtNombrePaciente.Text = objCitaMedica.Paciente.Nombre + " " +objCitaMedica.Paciente.ApellidoPaterno;
+                txtDNI.Text = objCitaMedica.Paciente.Dni;
                 btnBuscarTratamientos.Enabled = true;
             }
             
@@ -147,7 +147,13 @@ namespace presentacion
                     MessageBox.Show("Detalle ingresado correctamente", "PRODENT: Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Error al ingresar detalle.", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+
+                btnAgregar.Enabled = false;
+                btnRegistrar.Enabled = false;
+                txtCantidad.Text = "";
+                txtCantidad.Enabled = false;
+                txtNombrePaciente.Text = "";
+                txtDNI.Text = "";
             }
             catch (Exception err)
             {
