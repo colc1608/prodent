@@ -40,30 +40,34 @@ namespace persistencia
         }//fin de ingresar cita medica
 
 
-        public List<CitaMedica> buscarCitasDePaciente(Paciente paciente)
+        public List<CitaMedica> ListarCitasDelDia(Medico medico)
         {
             List<CitaMedica> listaDeCitasDePaciente = new List<CitaMedica>();
             try
             {
-                String sentenciaSQL =   " select cm.id, m.nombre, ha.fecha, ha.inicio, ha.fin  "
-                                        +" from horarioAtencion ha, citaMedica cm, paciente p, medico m "
-                                        +" where "
-                                        +" ha.idMedico = m.id and "
-                                        +" cm.idPaciente = p.id and "
-                                        +" cm.idHorarioAtencion = ha.id and "
-                                        + " p.dni = '" + paciente.Dni + "' ; "; 
+                String sentenciaSQL =" select cm.id as idCita, p.nombre, p.apellidoPaterno, p.apellidoMaterno, p.dni, ha.inicio, ha.fin "
+                                    +" from horarioAtencion ha, citaMedica cm, paciente p, medico m  "
+                                    +" where "
+                                    +" cm.idPaciente = p.id and  "
+                                    +" cm.idHorarioAtencion = ha.id and  "
+                                    +" ha.idMedico = m.id and  "
+                                    +" m.id = '"+medico.Id+"' and  "
+                                    + " ha.fecha = '2016-01-01'  ;  "; 
+                                    //+" ha.fecha = (SELECT CAST(getdate() as DATE) );  "; 
                 SqlDataReader resultado = cn.ejecutarConsulta(sentenciaSQL);
                 while (resultado.Read())
                 {
                     CitaMedica cm = new CitaMedica();
-                    Medico m = new Medico();
+                    Paciente p = new Paciente();
                     HorarioAtencion ha = new HorarioAtencion();
                     cm.Id = resultado.GetInt32(0);
-                    m.Nombre = resultado.GetString(1);
-                    ha.Fecha = resultado.GetDateTime(2);
-                    ha.Inicio = resultado.GetString(3);
-                    ha.Fin = resultado.GetString(4);
-                    ha.Medico = m;
+                    p.Nombre = resultado.GetString(1);
+                    p.ApellidoPaterno = resultado.GetString(2);
+                    p.ApellidoMaterno = resultado.GetString(3);
+                    p.Dni = resultado.GetString(4);
+                    ha.Inicio = resultado.GetString(5);
+                    ha.Fin = resultado.GetString(6);
+                    cm.Paciente = p;
                     cm.HorarioAtencion = ha;
                     
                     listaDeCitasDePaciente.Add(cm);
@@ -73,7 +77,7 @@ namespace persistencia
             }
             catch (Exception err)
             {
-                System.Console.WriteLine("ERROR -> persistencia -> citaMedicaDAO -> buscarCitasDePaciente " + err + "\n ");
+                System.Console.WriteLine("ERROR -> persistencia -> citaMedicaDAO -> ListarCitasDelDia() " + err + "\n\n ");
                 throw err;
             }
         }//fin de buscar

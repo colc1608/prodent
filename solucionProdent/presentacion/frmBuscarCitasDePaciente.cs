@@ -19,29 +19,31 @@ namespace presentacion
         //Variables globales
         List<CitaMedica> listaDeCitasMedicas = new List<CitaMedica>();
         public CitaMedica objCitaMedicaSeleccionada = new CitaMedica();
+        Medico medico;
+
+
 
         public frmBuscarCitasDePaciente()
         {
             InitializeComponent();
+            medico = frm_principal.retornarMedico();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Paciente paciente = new Paciente();
+            
             ServicioCitaMedica servicio = new ServicioCitaMedica();
             try
             {
-                
-                paciente.Dni = txtDNI.Text.ToString();
-                listaDeCitasMedicas = servicio.buscarCitasMedicasDePaciente(paciente);
+                listaDeCitasMedicas = servicio.ListarCitasDelDia(medico);
                 dataCitaMedica.Rows.Clear();
                 if(listaDeCitasMedicas.Count() == 0){
-                    MessageBox.Show(this, "Lista vacia", "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Hoy usted no tiene citas, vayase a su casa xD", "PRODENT: Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 foreach (CitaMedica cm in listaDeCitasMedicas)
                 {
-                    Object[] fila = { cm.HorarioAtencion.Medico.Nombre, cm.HorarioAtencion.Fecha, cm.HorarioAtencion.Inicio, cm.HorarioAtencion.Fecha };
+                    Object[] fila = { cm.Paciente.Nombre, cm.Paciente.ApellidoPaterno, cm.Paciente.ApellidoMaterno, cm.HorarioAtencion.Inicio, cm.HorarioAtencion.Fin };
                     dataCitaMedica.Rows.Add(fila);
                 }
             }
@@ -49,7 +51,7 @@ namespace presentacion
             {
                 MessageBox.Show(this, "Ocurrio un problema al LISTAR los pacientes disponibles. \n\nIntente de nuevo o verifique con el Administrador.",
                     "PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                System.Console.WriteLine("ERROR -> presentacion -> FRM-CRUDPACIENTE -> CARGAR LISTADO DE PACIENTES " + err);
+                System.Console.WriteLine("ERROR -> presentacion -> FRM-CRUDPACIENTE -> CARGAR LISTADO DE PACIENTES " + err +"\n\n");
 
             }
         }

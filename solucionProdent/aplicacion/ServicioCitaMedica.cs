@@ -52,18 +52,18 @@ namespace aplicacion
             }
         }//fin de ingresar Paciente
 
-        public List<CitaMedica> buscarCitasMedicasDePaciente(Paciente paciente)
+        public List<CitaMedica> ListarCitasDelDia(Medico medico)
         {
             try
             {
                 cn.abrirConexion();
-                List<CitaMedica> listaPacientes = dao.buscarCitasDePaciente(paciente);
+                List<CitaMedica> listaDeCitas = dao.ListarCitasDelDia(medico);
                 cn.cerrarConexion();
-                return listaPacientes;
+                return listaDeCitas;
             }
             catch (Exception err)
             {
-                System.Console.WriteLine("ERROR -> aplicacion ->  servicio cita medica -> buscarCitasMedicasDePaciente " + err + "\n ");
+                System.Console.WriteLine("ERROR -> aplicacion ->  servicio cita medica -> ListarCitasDelDia() " + err + "\n\n ");
                 throw err;
             }
         }//fin de buscar citaS de paciente

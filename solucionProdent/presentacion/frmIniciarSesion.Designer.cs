@@ -64,6 +64,7 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(100, 22);
             this.txtUser.TabIndex = 2;
+            this.txtUser.Text = "aaaa";
             // 
             // label3
             // 
@@ -82,11 +83,12 @@
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(100, 22);
             this.txtClave.TabIndex = 4;
+            this.txtClave.Text = "123456";
             // 
             // btnEntrar
             // 
             this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrar.Location = new System.Drawing.Point(162, 192);
+            this.btnEntrar.Location = new System.Drawing.Point(163, 190);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(75, 23);
             this.btnEntrar.TabIndex = 5;
