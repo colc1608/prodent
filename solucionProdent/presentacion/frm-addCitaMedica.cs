@@ -46,15 +46,15 @@ namespace presentacion
             ServicioHorario serviceHA = new ServicioHorario();
             try
             {
-                string fecha = txtFecha.Value.ToString("dd/MM/yyyy");
+                string fecha = txtFecha.Value.ToString("MM/dd/yyyy");
                 int posicionCombo = cboEspecialidad.SelectedIndex;
                 especialidad = listaDeEspecialidades[posicionCombo];
                 listaDeHorarios = serviceHA.listarHorariosDisponibles(fecha, especialidad.Id.ToString() );
                 dataHorarioAtencion.Rows.Clear();
-                if(listaDeHorarios == null) {
-                    MessageBox.Show(this, "No hay fechas disponibles", "PRODENT: Adveterncia",MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else{
+                if(listaDeHorarios.Count == 0 || listaDeHorarios == null )
+                MessageBox.Show(this, "La lista esta vacia","PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                {
                     foreach (HorarioAtencion ha in listaDeHorarios)
                     {
                         Object[] fila = { ha.Medico.Nombre, ha.Inicio, ha.Fin, ha.Consultorio };

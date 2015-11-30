@@ -97,7 +97,7 @@ namespace presentacion
             {
                 btnAgregar.Enabled = true;
                 txtCantidad.Enabled = true;
-                txtDescripcion.Text = objTratamiento.Id + " " + objTratamiento.Nombre + " - " + objTratamiento.Precio;
+                txtDescripcion.Text = objTratamiento.Nombre;
 
             }
                 
@@ -144,7 +144,7 @@ namespace presentacion
 
                 registros_afectados = servicio.ingresarDetalleCita(this.listaDeDetalleCita);
                 if (registros_afectados >= 1)
-                    MessageBox.Show("Detalle ingresado correctamente", "PRODENT: Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Detalle de tratamiento ingresados correctamente", "PRODENT: Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Error al ingresar detalle.", "PRODENT: Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

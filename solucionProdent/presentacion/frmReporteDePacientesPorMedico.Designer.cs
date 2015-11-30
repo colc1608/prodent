@@ -45,7 +45,7 @@
             // cboMedico
             // 
             this.cboMedico.FormattingEnabled = true;
-            this.cboMedico.Location = new System.Drawing.Point(72, 44);
+            this.cboMedico.Location = new System.Drawing.Point(73, 71);
             this.cboMedico.Name = "cboMedico";
             this.cboMedico.Size = new System.Drawing.Size(157, 21);
             this.cboMedico.TabIndex = 0;
@@ -53,7 +53,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 47);
+            this.label1.Location = new System.Drawing.Point(25, 74);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             // dtpFecha
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(270, 47);
+            this.dtpFecha.Location = new System.Drawing.Point(271, 74);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(195, 20);
             this.dtpFecha.TabIndex = 2;
@@ -77,7 +77,7 @@
             this.ApellidoMaterno,
             this.Inicio,
             this.Fin});
-            this.dataPacientes.Location = new System.Drawing.Point(27, 84);
+            this.dataPacientes.Location = new System.Drawing.Point(28, 111);
             this.dataPacientes.Name = "dataPacientes";
             this.dataPacientes.ReadOnly = true;
             this.dataPacientes.Size = new System.Drawing.Size(553, 274);
@@ -115,7 +115,7 @@
             // 
             // btnListar
             // 
-            this.btnListar.Location = new System.Drawing.Point(494, 47);
+            this.btnListar.Location = new System.Drawing.Point(495, 74);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(75, 23);
             this.btnListar.TabIndex = 4;
@@ -126,17 +126,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(230, 9);
+            this.label2.Location = new System.Drawing.Point(231, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.Size = new System.Drawing.Size(151, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "REPORTE xD";
+            this.label2.Text = "Reporte de clienes por medico";
             // 
             // frmReporteDePacientesPorMedico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 405);
+            this.ClientSize = new System.Drawing.Size(608, 410);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.dataPacientes);

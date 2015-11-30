@@ -75,15 +75,15 @@
             this.groupBox1.Controls.Add(this.btnBuscarPaciente);
             this.groupBox1.Location = new System.Drawing.Point(35, 65);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(697, 78);
+            this.groupBox1.Size = new System.Drawing.Size(675, 68);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos Paciente";
+            this.groupBox1.Text = "Datos de Paciente";
             // 
             // txtDNI
             // 
             this.txtDNI.Enabled = false;
-            this.txtDNI.Location = new System.Drawing.Point(554, 36);
+            this.txtDNI.Location = new System.Drawing.Point(541, 28);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(126, 20);
             this.txtDNI.TabIndex = 6;
@@ -91,7 +91,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(522, 39);
+            this.label4.Location = new System.Drawing.Point(509, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(26, 13);
             this.label4.TabIndex = 5;
@@ -100,15 +100,15 @@
             // txtApellido
             // 
             this.txtApellido.Enabled = false;
-            this.txtApellido.Location = new System.Drawing.Point(322, 39);
+            this.txtApellido.Location = new System.Drawing.Point(323, 28);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(159, 20);
+            this.txtApellido.Size = new System.Drawing.Size(166, 20);
             this.txtApellido.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(272, 43);
+            this.label3.Location = new System.Drawing.Point(278, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 3;
@@ -117,15 +117,15 @@
             // txtNombre
             // 
             this.txtNombre.Enabled = false;
-            this.txtNombre.Location = new System.Drawing.Point(128, 36);
+            this.txtNombre.Location = new System.Drawing.Point(134, 28);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(110, 20);
+            this.txtNombre.Size = new System.Drawing.Size(138, 20);
             this.txtNombre.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(78, 39);
+            this.label2.Location = new System.Drawing.Point(84, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 1;
@@ -134,11 +134,11 @@
             // btnBuscarPaciente
             // 
             this.btnBuscarPaciente.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnBuscarPaciente.Location = new System.Drawing.Point(19, 28);
+            this.btnBuscarPaciente.Location = new System.Drawing.Point(6, 20);
             this.btnBuscarPaciente.Name = "btnBuscarPaciente";
-            this.btnBuscarPaciente.Size = new System.Drawing.Size(35, 34);
+            this.btnBuscarPaciente.Size = new System.Drawing.Size(59, 34);
             this.btnBuscarPaciente.TabIndex = 0;
-            this.btnBuscarPaciente.Text = "b";
+            this.btnBuscarPaciente.Text = "buscar Paciente";
             this.btnBuscarPaciente.UseVisualStyleBackColor = true;
             this.btnBuscarPaciente.Click += new System.EventHandler(this.btnBuscarPaciente_Click);
             // 
@@ -151,26 +151,26 @@
             this.groupBox2.Controls.Add(this.txtFecha);
             this.groupBox2.Location = new System.Drawing.Point(35, 149);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(697, 78);
+            this.groupBox2.Size = new System.Drawing.Size(675, 78);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Fecha";
+            this.groupBox2.Text = "Horario disponible";
             // 
             // btnBuscarHorario
             // 
             this.btnBuscarHorario.Enabled = false;
-            this.btnBuscarHorario.Location = new System.Drawing.Point(592, 26);
+            this.btnBuscarHorario.Location = new System.Drawing.Point(6, 25);
             this.btnBuscarHorario.Name = "btnBuscarHorario";
-            this.btnBuscarHorario.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarHorario.Size = new System.Drawing.Size(75, 39);
             this.btnBuscarHorario.TabIndex = 4;
-            this.btnBuscarHorario.Text = "Buscar";
+            this.btnBuscarHorario.Text = "Buscar horarios";
             this.btnBuscarHorario.UseVisualStyleBackColor = true;
             this.btnBuscarHorario.Click += new System.EventHandler(this.btnBuscarHorario_Click);
             // 
             // cboEspecialidad
             // 
             this.cboEspecialidad.FormattingEnabled = true;
-            this.cboEspecialidad.Location = new System.Drawing.Point(398, 26);
+            this.cboEspecialidad.Location = new System.Drawing.Point(429, 31);
             this.cboEspecialidad.Name = "cboEspecialidad";
             this.cboEspecialidad.Size = new System.Drawing.Size(159, 21);
             this.cboEspecialidad.TabIndex = 3;
@@ -178,7 +178,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(314, 29);
+            this.label6.Location = new System.Drawing.Point(356, 39);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 13);
             this.label6.TabIndex = 2;
@@ -187,7 +187,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 34);
+            this.label5.Location = new System.Drawing.Point(87, 38);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 13);
             this.label5.TabIndex = 1;
@@ -195,7 +195,7 @@
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(81, 28);
+            this.txtFecha.Location = new System.Drawing.Point(134, 33);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(200, 20);
             this.txtFecha.TabIndex = 0;
@@ -212,11 +212,11 @@
             this.Inicio,
             this.Fin,
             this.Consultorio});
-            this.dataHorarioAtencion.Location = new System.Drawing.Point(35, 254);
+            this.dataHorarioAtencion.Location = new System.Drawing.Point(52, 254);
             this.dataHorarioAtencion.Name = "dataHorarioAtencion";
             this.dataHorarioAtencion.ReadOnly = true;
             this.dataHorarioAtencion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataHorarioAtencion.Size = new System.Drawing.Size(697, 168);
+            this.dataHorarioAtencion.Size = new System.Drawing.Size(650, 168);
             this.dataHorarioAtencion.TabIndex = 3;
             this.dataHorarioAtencion.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataHorarioAtencion_MouseClick);
             // 
@@ -251,11 +251,11 @@
             // btnGuardar
             // 
             this.btnGuardar.Enabled = false;
-            this.btnGuardar.Location = new System.Drawing.Point(638, 441);
+            this.btnGuardar.Location = new System.Drawing.Point(608, 441);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(94, 33);
             this.btnGuardar.TabIndex = 4;
-            this.btnGuardar.Text = "Registrar";
+            this.btnGuardar.Text = "Registrar cita";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -263,7 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 525);
+            this.ClientSize = new System.Drawing.Size(729, 496);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dataHorarioAtencion);
             this.Controls.Add(this.groupBox2);

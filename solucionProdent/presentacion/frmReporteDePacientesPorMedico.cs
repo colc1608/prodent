@@ -47,7 +47,7 @@ namespace presentacion
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            string fecha = dtpFecha.Value.ToString("dd/MM/yyyy");
+            string fecha = dtpFecha.Value.ToString("MM/dd/yyyy");
             
             Medico medico = new Medico();
             int posicionCombo = cboMedico.SelectedIndex;
@@ -60,11 +60,16 @@ namespace presentacion
                 ServicioCitaMedica servicio = new ServicioCitaMedica();
                 listaDePacientesPorMedico = servicio.LisrarPacientesPorDoctor(idMedico, fecha);
                 dataPacientes.Rows.Clear();
-                foreach (CitaMedica cm in listaDePacientesPorMedico)
+                if(listaDePacientesPorMedico.Count == 0 || listaDePacientesPorMedico == null )
+                    MessageBox.Show(this, "La lista esta vacia","PRODENT: Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else{
+                    foreach (CitaMedica cm in listaDePacientesPorMedico)
                 {
                     Object[] fila = { cm.Paciente.Nombre, cm.Paciente.ApellidoPaterno, cm.Paciente.ApellidoMaterno, cm.HorarioAtencion.Inicio, cm.HorarioAtencion.Fin };
                     dataPacientes.Rows.Add(fila);
                 }
+                }
+
             }
             catch (Exception err)
             {
@@ -73,6 +78,14 @@ namespace presentacion
                 System.Console.WriteLine("ERROR -> presentacion -> FRM-CRUDPACIENTE -> CARGAR LISTADO DE PACIENTES " + err);
                 //Console.WriteLine(err.ToString());
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string fecha = dtpFecha.Value.ToString("MM/dd/yyyy");
+            //.Value.Date
+            //string fecha = dtpFecha.Value.Date.ToString();
+            btntest.Text = fecha;
         }
     }
 }

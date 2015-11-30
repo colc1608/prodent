@@ -49,6 +49,7 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataCitaTratamientos)).BeginInit();
@@ -56,11 +57,11 @@
             // 
             // btnBuscarCitasDePaciente
             // 
-            this.btnBuscarCitasDePaciente.Location = new System.Drawing.Point(15, 28);
+            this.btnBuscarCitasDePaciente.Location = new System.Drawing.Point(15, 19);
             this.btnBuscarCitasDePaciente.Name = "btnBuscarCitasDePaciente";
-            this.btnBuscarCitasDePaciente.Size = new System.Drawing.Size(54, 23);
+            this.btnBuscarCitasDePaciente.Size = new System.Drawing.Size(63, 38);
             this.btnBuscarCitasDePaciente.TabIndex = 0;
-            this.btnBuscarCitasDePaciente.Text = "Buscar";
+            this.btnBuscarCitasDePaciente.Text = "Buscar paciente";
             this.btnBuscarCitasDePaciente.UseVisualStyleBackColor = true;
             this.btnBuscarCitasDePaciente.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -76,7 +77,7 @@
             this.groupBox1.Size = new System.Drawing.Size(575, 63);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cita Medica - Paciente";
+            this.groupBox1.Text = "Informacion de paciente";
             // 
             // txtDNI
             // 
@@ -163,11 +164,11 @@
             // btnBuscarTratamientos
             // 
             this.btnBuscarTratamientos.Enabled = false;
-            this.btnBuscarTratamientos.Location = new System.Drawing.Point(15, 28);
+            this.btnBuscarTratamientos.Location = new System.Drawing.Point(15, 19);
             this.btnBuscarTratamientos.Name = "btnBuscarTratamientos";
-            this.btnBuscarTratamientos.Size = new System.Drawing.Size(54, 23);
+            this.btnBuscarTratamientos.Size = new System.Drawing.Size(71, 40);
             this.btnBuscarTratamientos.TabIndex = 0;
-            this.btnBuscarTratamientos.Text = "Buscar";
+            this.btnBuscarTratamientos.Text = "Buscar tratamiento";
             this.btnBuscarTratamientos.UseVisualStyleBackColor = true;
             this.btnBuscarTratamientos.Click += new System.EventHandler(this.btnBuscarTratamientos_Click);
             // 
@@ -255,11 +256,22 @@
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnGuardar_CLICK);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(276, 18);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(173, 24);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "registrar tratamiento";
+            // 
             // frmAddTratamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 485);
+            this.ClientSize = new System.Drawing.Size(650, 478);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtTotal);
@@ -268,7 +280,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmAddTratamiento";
-            this.Text = "frmAddTratamiento";
+            this.Text = "Registrar tratamiento";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -302,5 +314,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
+        private System.Windows.Forms.Label label6;
     }
 }
