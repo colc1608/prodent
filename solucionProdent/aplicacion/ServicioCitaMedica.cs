@@ -13,14 +13,11 @@ namespace aplicacion
     public class ServicioCitaMedica
     {
         private conexion cn;
-        
         private citaMedicaDAO dao;
-        private CitaMedica cm = new CitaMedica();
 
         public ServicioCitaMedica() 
         {
             cn = new conexion();
-            
             dao = new citaMedicaDAO(cn);
         }
 
@@ -30,13 +27,16 @@ namespace aplicacion
             int r = 0;
             try
             {
-                
-                if (cm.MasDeDosCitas(citaMedica)){
+                cn.abrirConexion();
+                Paciente paciente = new Paciente();
+                paciente.Citas = dao.ListarCitasDeUnPaciente(citaMedica.Paciente.Id.ToString(), citaMedica.HorarioAtencion.Fecha.ToString() );
+
+                if (paciente.masDeDosCitas()){
                     return r;
                 } 
                 else
                 {
-                    cn.abrirConexion();
+                    
                     r = dao.ingresar(citaMedica);
                     cn.cerrarConexion();
                     return r;

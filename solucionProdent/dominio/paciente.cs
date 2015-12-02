@@ -20,6 +20,31 @@ namespace dominio
         private string correo;
         private string estado;
         private DateTime fechaNacimiento;
+        private List<CitaMedica> citas;
+
+
+
+
+        public Boolean masDeDosCitas()
+        {
+            if (citas.Count >= 2)
+                return true;
+            return false;
+        }
+
+
+
+
+
+
+
+
+
+        public List<CitaMedica> Citas
+        {
+            get { return citas; }
+            set { citas = value; }
+        }
 
         public DateTime FechaNacimiento
         {

@@ -119,7 +119,7 @@ namespace presentacion
             {
                 cita.Paciente = objPacienteSeleccionado;
                 cita.HorarioAtencion = objHorarioSeleccionado;
-                cita.HorarioAtencion.Fecha = txtFecha.Value;
+                cita.HorarioAtencion.Fecha = txtFecha.Value.ToString("MM/dd/yyyy");
                 
                 registros_afectados = servicio.ingresarCitaMedica(cita);
                 if (registros_afectados >= 1)

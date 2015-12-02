@@ -9,6 +9,16 @@ namespace dominio
     public class HorarioAtencion
     {
         private int id;
+        private string fecha;
+
+        public string Fecha
+        {
+            get { return fecha; }
+            set { fecha = value; }
+        }
+
+
+
 
         public int Id
         {
@@ -24,13 +34,9 @@ namespace dominio
             set { medico = value; }
         }
 
-        private DateTime fecha;
+        
 
-        public DateTime Fecha
-        {
-            get { return fecha; }
-            set { fecha = value; }
-        }
+        
 
         private string inicio;
 

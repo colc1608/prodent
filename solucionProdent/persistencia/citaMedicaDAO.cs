@@ -52,7 +52,7 @@ namespace persistencia
                                     +" cm.idHorarioAtencion = ha.id and  "
                                     +" ha.idMedico = m.id and  "
                                     +" m.id = '"+medico.Id+"' and  "
-                                    + " ha.fecha = '2016-01-01'  ;  "; 
+                                    + " ha.fecha = ( SELECT CAST(getdate() as DATE) ) ;  "; 
                                     //+" ha.fecha = (SELECT CAST(getdate() as DATE) );  "; 
                 SqlDataReader resultado = cn.ejecutarConsulta(sentenciaSQL);
                 while (resultado.Read())
@@ -121,6 +121,45 @@ namespace persistencia
             }
         }//fin de buscar
 
+        //---------------------------------
+        public List<CitaMedica> ListarCitasDeUnPaciente(string idPaciente, string fecha)
+        {
+            List<CitaMedica> listaDeCitasDePaciente = new List<CitaMedica>();
+            try
+            {
+                String sentenciaSQL = " select p.nombre, p.apellidoPaterno, p.apellidoMaterno, ha.inicio, ha.fin "
+                                        + " from horarioAtencion ha, citaMedica cm, paciente p, medico m "
+                                        + " where "
+                                        + " cm.idpaciente = p.id and "
+                                        + " cm.idHorarioAtencion = ha.id and "
+                                        + " ha.idMedico = m.id and "
+                                        + " p.id = '" + idPaciente + "' and "
+                                        + " ha.fecha = '" + fecha + "' ";
+                SqlDataReader resultado = cn.ejecutarConsulta(sentenciaSQL);
+                while (resultado.Read())
+                {
+                    CitaMedica cm = new CitaMedica();
+                    Paciente p = new Paciente();
+                    HorarioAtencion ha = new HorarioAtencion();
+                    p.Nombre = resultado.GetString(0);
+                    p.ApellidoPaterno = resultado.GetString(1);
+                    p.ApellidoMaterno = resultado.GetString(2);
+                    ha.Inicio = resultado.GetString(3);
+                    ha.Fin = resultado.GetString(4);
+                    cm.HorarioAtencion = ha;
+                    cm.Paciente = p;
+
+                    listaDeCitasDePaciente.Add(cm);
+                }
+                resultado.Close();
+                return listaDeCitasDePaciente;
+            }
+            catch (Exception err)
+            {
+                System.Console.WriteLine("ERROR -> persistencia -> citaMedicaDAO -> ListarPacientesPorMedico " + err + "\n ");
+                throw err;
+            }
+        }//fin de buscar
 
 
         

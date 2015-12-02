@@ -12,7 +12,7 @@ namespace dominio
 {
     public class CitaMedica
     {
-        ConexionDominio cn = new ConexionDominio();
+        
 
         private int id;
         private HorarioAtencion horarioAtencion;

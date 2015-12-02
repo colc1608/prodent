@@ -85,7 +85,7 @@ namespace presentacion
             string fecha = dtpFecha.Value.ToString("MM/dd/yyyy");
             //.Value.Date
             //string fecha = dtpFecha.Value.Date.ToString();
-            btntest.Text = fecha;
+            //btntest.Text = fecha;
         }
     }
 }
